@@ -101,20 +101,26 @@ alias less='less -FSRXc'
 alias e='subl'
 alias o='xdg-open'
 alias up="cd .."
+alias upp="cd ../.."
+alias uppp="cd ../../.."
 alias al='subl ~/.bashrc'
 alias desk='pushd ~/Desktop/'
 alias dbc='pushd ~/Desktop/DBC_stuff/'
 alias proj='pushd ~/Desktop/projects/'
+alias cosm='pushd ~/Desktop/codesmith/'
 alias down='pushd ~/Downloads/'
 alias docs='pushd ~/Documents/'
 alias be="bundle exec"
 alias day="redshift -O 6500"
 alias night="redshift -O 3700"
 alias twilight="redshift -O 5000"
+alias serv="python -m SimpleHTTPServer"
 
+pyenv() { . ~/Desktop/projects/django-tutorial/bin/activate; }
 cd() { builtin cd "$@"; ll; }
 mkcd () { mkdir -p "$1" && cd "$1"; }
 trash () { command mv "$@" ~/.local/share/Trash/files/ ; }
+te() { touch "$1"; subl "$1"; }
 say() { echo "$1" | espeak; }
 
 #full recursive directory listing
