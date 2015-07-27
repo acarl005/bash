@@ -125,6 +125,7 @@ te() { touch "$1"; subl "$1"; }
 say() { echo "$1" | espeak; }
 # requires underscore-cli
 github() {
+  if [ ! -d .git ] ; then git init; fi
   export res=$(curl https://api.github.com/user/repos -u acarl005 -X POST -d "{\"name\":\"$1\"}");
   export clone_url=$( echo $res | underscore extract clone_url | sed -e 's/^"//'  -e 's/"$//'); #remove quotes
   git remote add origin "$clone_url";
