@@ -111,6 +111,7 @@ alias cosm='pushd ~/Desktop/codesmith/'
 alias down='pushd ~/Downloads/'
 alias docs='pushd ~/Documents/'
 alias be="bundle exec"
+#requires redshift
 alias day="redshift -O 6500"
 alias night="redshift -O 3700"
 alias twilight="redshift -O 5000"
@@ -122,6 +123,15 @@ mkcd () { mkdir -p "$1" && cd "$1"; }
 trash () { command mv "$@" ~/.local/share/Trash/files/ ; }
 te() { touch "$1"; subl "$1"; }
 say() { echo "$1" | espeak; }
+# requires underscore-cli
+github() {
+  export res=$(curl https://api.github.com/user/repos -u acarl005 -X POST -d "{\"name\":\"$1\"}");
+  export clone_url=$( echo $res | underscore extract clone_url | sed -e 's/^"//'  -e 's/"$//'); #remove quotes
+  git remote add origin "$clone_url";
+  echo $res | underscore extract svn_url;
+}
+
+
 
 #full recursive directory listing
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
