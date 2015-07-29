@@ -7,5 +7,5 @@
 
 uri = ARGV[0].dup
 uri.sub!(/^mongodb:\/\/(\w+):(\w+)@(.+)$/, '\3 -u \1 -p \2')
-
-exec 'mongo #{uri}'
+puts "connecting to #{uri}"
+exec "mongo #{uri}"
