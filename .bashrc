@@ -1,3 +1,6 @@
+#include custom scripts
+PATH=$PATH:~/opt/bin
+
 export RBENV_ROOT="${HOME}/.rbenv"
 if [ -d "${RBENV_ROOT}" ]; then
   export PATH="${RBENV_ROOT}/bin:${PATH}"
@@ -107,15 +110,23 @@ alias al='subl ~/.bashrc'
 alias desk='pushd ~/Desktop/'
 alias dbc='pushd ~/Desktop/DBC_stuff/'
 alias proj='pushd ~/Desktop/projects/'
+alias prod='pushd ~/Desktop/production/'
 alias cosm='pushd ~/Desktop/codesmith/'
 alias down='pushd ~/Downloads/'
 alias docs='pushd ~/Documents/'
 alias be="bundle exec"
+alias serv="python -m SimpleHTTPServer"
+alias ni="npm install"
+alias ns="npm start"
+alias nsd="npm run start-dev"
+
 #requires redshift
 alias day="redshift -O 6500"
 alias night="redshift -O 3700"
 alias twilight="redshift -O 5000"
-alias serv="python -m SimpleHTTPServer"
+
+#common typos
+alias gits="git s"
 
 pyenv() { . ~/Desktop/projects/django-tutorial/bin/activate; }
 cd() { builtin cd "$@"; ll; }
@@ -129,6 +140,7 @@ github() {
   export res=$(curl https://api.github.com/user/repos -u acarl005 -X POST -d "{\"name\":\"$1\"}");
   export clone_url=$( echo $res | underscore extract clone_url | sed -e 's/^"//'  -e 's/"$//'); #remove quotes
   git remote add origin "$clone_url";
+  echo "created github repository ($1) at:";
   echo $res | underscore extract svn_url;
 }
 
