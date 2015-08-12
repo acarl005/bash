@@ -7,10 +7,6 @@ if [ -d "${RBENV_ROOT}" ]; then
   eval "$(rbenv init -)"
 fi
 
-# echo is like puts for bash (bash is the program running in your terminal)
-echo "Loading ~/.bashrc a shell script that runs in every new terminal you open"
-
-# $VARIABLE will render before the rest of the command is executed
 echo "Logged in as $USER at $(hostname)"
 
 # Load RVM into a shell session *as a function*
@@ -22,12 +18,6 @@ test -d $HOME/.rvm/bin && PATH=$PATH:$HOME/.rvm/bin
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # Path for RBENV
 test -d $HOME/.rbenv/ && PATH="$HOME/.rbenv/bin:$PATH"
-
-# Path changes are made non-destructive with PATH=new_path;$PATH   This is like A=A+B so we preserve the old path
-
-# Path order matters, putting /usr/local/bin: before $PATH
-# ensures brew programs will be seen and used before another program
-# of the same name is called
 
 # Path for brew
 test -d /usr/local/bin && export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
@@ -101,6 +91,7 @@ alias mv='mv -iv'
 alias mkdir='mkdir -pv'
 alias ll='ls -FGlAhp'
 alias less='less -FSRXc'
+alias ps='ps -ef'
 alias e='subl'
 alias o='xdg-open'
 alias up="cd .."
@@ -122,6 +113,8 @@ alias ns="npm start"
 alias nsd="npm run start-dev"
 alias nt="npm test"
 
+alias casper="node_modules/.bin/casperjs --ssl-protocol=any --ignore-ssl-errors=yes test"
+
 alias g="git"
 
 #requires redshift
@@ -138,6 +131,7 @@ mkcd () { mkdir -p "$1" && cd "$1"; }
 trash () { command mv "$@" ~/.local/share/Trash/files/ ; }
 te() { touch "$1"; subl "$1"; }
 say() { echo "$1" | espeak; }
+
 # requires underscore-cli
 github() {
   if [ ! -d .git ] ; then git init; fi
@@ -182,12 +176,8 @@ extract () {
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+  . ~/.bash_aliases
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -200,9 +190,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 
 
 #   ----------------
