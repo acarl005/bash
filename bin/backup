@@ -1,0 +1,7 @@
+pushd ~/Desktop/projects/bash
+cp ~/.bashrc ./
+cp ~/.bash_aliases ./
+cp -R ~/opt/bin ./
+git add .
+git commit -m "$1"
+git push origin master

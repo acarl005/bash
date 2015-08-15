@@ -85,45 +85,10 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias cp='cp -iv'
-alias mv='mv -iv'
-alias mkdir='mkdir -pv'
-alias ll='ls -FGlAhp'
-alias less='less -FSRXc'
-alias ps='ps -ef'
-alias e='subl'
-alias o='xdg-open'
-alias up="cd .."
-alias upp="cd ../.."
-alias uppp="cd ../../.."
-alias al='subl ~/.bashrc'
-alias desk='pushd ~/Desktop/'
-alias dbc='pushd ~/Desktop/DBC_stuff/'
-alias proj='pushd ~/Desktop/projects/'
-alias prod='pushd ~/Desktop/production/'
-alias cosm='pushd ~/Desktop/codesmith/'
-alias down='pushd ~/Downloads/'
-alias docs='pushd ~/Documents/'
-alias be="bundle exec"
-alias serv="python -m SimpleHTTPServer"
-
-alias ni="npm install"
-alias ns="npm start"
-alias nsd="npm run start-dev"
-alias nt="npm test"
-
-alias casper="node_modules/.bin/casperjs --ssl-protocol=any --ignore-ssl-errors=yes test"
-
-alias g="git"
-
-#requires redshift
-alias day="redshift -O 6500"
-alias night="redshift -O 3700"
-alias twilight="redshift -O 5000"
-
-#common typos
-alias gits="git s"
+# Alias definitions.
+if [ -f ~/.bash_aliases ]; then
+  . ~/.bash_aliases
+fi
 
 pyenv() { . ~/Desktop/projects/django-tutorial/bin/activate; }
 cd() { builtin cd "$@"; ll; }
@@ -175,11 +140,6 @@ extract () {
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Alias definitions.
-if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -217,6 +177,6 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
         echo -e "\n${RED}Machine stats :$NC " ; uptime
         echo -e "\n${RED}Current network location :$NC " ; scselect
         echo -e "\n${RED}Public facing IP Address :$NC " ;myip
-        #echo -e "\n${RED}DNS Configuration:$NC " ; scutil --dns
+        # echo -e "\n${RED}DNS Configuration:$NC " ; scutil --dns
         echo
     }

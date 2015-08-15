@@ -1,0 +1,8 @@
+#!/usr/bin/node
+
+var exec = require('child_process').exec;
+
+exec('git remote -v', function(err, out) {
+  var url = out.match(/origin\s*(https:\/\/github\.com\/(?:\S+)).git/)[1];
+  exec('google-chrome ' + url);
+});
