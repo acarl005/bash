@@ -4,8 +4,9 @@
 # mongo ds051851.mongolab.com:51851/beatsocket -u <dbuser> -p <dbpassword>
 # To connect using a driver via the standard URI (what's this?):
 #   mongodb://<dbuser>:<dbpassword>@ds051851.mongolab.com:51851/beatsocket
-# mongodb://azai91:$codesmith&@ds037262.mongolab.com:37262/calendar
+
+# uri = "mongodb://andrew:$codesmith&@ds035713.mongolab.com:35713/slack-server"
 uri = ARGV[0].dup
-uri.sub!(/^mongodb:\/\/(\w+):([^@]+)@(.+)$/, '\3 -u \1 -p \2')
+uri.sub!(/^mongodb:\/\/(\w+):(.*?)@(.+)$/, '\3 -u \'\1\' -p \'\2\'')
 puts "connecting to #{uri}"
 exec "mongo #{uri}"

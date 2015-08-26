@@ -19,6 +19,7 @@ alias prod='pushd ~/Desktop/production/'
 alias cosm='pushd ~/Desktop/codesmith/'
 alias down='pushd ~/Downloads/'
 alias docs='pushd ~/Documents/'
+alias site='pushd ~/Desktop/production/codesmith-public-site'
 alias be="bundle exec"
 alias serv="python -m SimpleHTTPServer"
 

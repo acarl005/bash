@@ -107,8 +107,6 @@ github() {
   echo $res | underscore extract svn_url;
 }
 
-
-
 #full recursive directory listing
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
 
