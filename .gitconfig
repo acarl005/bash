@@ -28,6 +28,7 @@
   ass = "!git add . ; git s"
   see = "!gitsee"
   open = "!gitopen"
+  rr = "!gitrr"
 
   # lg is now a shortcut for a pretty log with short commit messages
   # See the log manpage: https://www.kernel.org/pub/software/scm/git/docs/git-log.html
