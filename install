@@ -1,0 +1,26 @@
+set -e #exit on any failure
+
+sudo add-apt-repository ppa:webupd8team/sublime-text-2
+sudo apt-get update
+sudo apt-get install sublime-text
+
+sublime="$HOME/.config/sublime-text-2/Packages/User"
+
+test -d $sublime && {
+  cp Preferences.sublime-settings $sublime/
+  cp "Default (Linux).sublime-keymap" $sublime/
+  cd subl_macros
+  for f in *.sublime-macro; do
+    cp $f $sublime/
+  done
+  cd ..
+}
+
+mkdir ~/opt
+cp -R bin/ ~/opt/
+cp .bashrc ~/
+cp .bash_aliases ~/
+cp .gitconfig ~/
+cp .inputrc ~/
+cp .profile ~/
+cp -R .conky/ ~/
