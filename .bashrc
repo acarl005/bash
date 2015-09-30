@@ -1,34 +1,56 @@
-#include custom scripts
+# fix bug with atheros network card
+# https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1436940
+# fix gulp watch error 
+# echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
+# include custom scripts
 PATH=$PATH:~/opt/bin
 
-export RBENV_ROOT="${HOME}/.rbenv"
-if [ -d "${RBENV_ROOT}" ]; then
-  export PATH="${RBENV_ROOT}/bin:${PATH}"
-  eval "$(rbenv init -)"
-fi
-
-echo "Logged in as $USER at $(hostname)"
-
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-# Path for RVM
-test -d $HOME/.rvm/bin && PATH=$PATH:$HOME/.rvm/bin
-
-# Rbenv autocomplete and shims
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-# Path for RBENV
-test -d $HOME/.rbenv/ && PATH="$HOME/.rbenv/bin:$PATH"
-
-# Path for brew
-test -d /usr/local/bin && export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
-# Path for Heroku
-test -d /usr/local/heroku/ && export PATH="/usr/local/heroku/bin:$PATH"
+date=$(date);
+echo "Welcome, $USER! It's $date."
+echo "You're logged in at $(hostname)."
+echo                                                                
+echo '     +===+             ==~~~~~~~==                                   '
+echo '   ==~~~~~~~=      ~~~:::::::::::::~~~+                              '
+echo ' ?==~~~~~~~~~= +~~~::::::,,,,,:::::::~~~~+                           '
+echo ' +=~~~~::::~~=~~~::::,,,,,,,,,,,,,:::::~~~~+                         '
+echo '?+=~~~~~:::~=~~::::,,,,,,,,,,,,,,,,::::::~~~=+                       '
+echo '?+==~~~~::~=~~:::::,,,,,,,,,,,,,,,,,:::::~~~~=+                      '
+echo '?+==~~~~~==~~:::::,,,7O=M,,,,,,,N~I+,:::::~~~~=+                     '
+echo ' ?+==~~~==~~~:::::,,,$  ,=,,,,,7?  8:::::::~~~~=+                    '
+echo ' I?===~+=~~~~:::::,,~+  .O,,,,,M+  7O::::::~~~~==+                   '
+echo ' ??+=====~~~~::::::,$N. OD,,,,,MN  MM::::::~~~~==++                  '
+echo '  ??+++==~~~~::::::,8MMMMN,,,,,MMMMMM:::::~~~~~===+?                 '
+echo '   I??+==~~~~:::::::8MMMM8,,,,,MNMMNM::::~~~~~~===+?                 '
+echo '    I++==~~~~~~:::::$8888I:::::88888M:::~~~~~~~===+?+                '
+echo '    ?++===~~====~::::ZZZ8,:::::~MZZ87::~~==+=====++??~=              '
+echo '    ?++====++++++=~::N8N8:::::::+8ZO:~~+++++++===++??~~=+            '
+echo '    ??++====+++++=~~~::::::~=~~:::~~~~~+++++?===+++?I~~~==           '
+echo '    I?+++=======~~~~~~~~~NDDDDDN=~~~~~~~~======++++?I~~~~==          '
+echo '    ???++======~~~~~~~~~~8OZZZZ8=~~~~~~~~=====++++??I~~~~==+         '
+echo '    ?I?++++======~~~~~~~~7$$$$$I~~~~~~~======++++???I~~~~==+?        '
+echo '     I???+++========~~~~~~~ZZZ~~~~~=========++++???I?~~====+?        '
+echo '     II???++++============================+++++???II+====++??        '
+echo '      II???++++++======================++++++????III+++++??I         '
+echo '      ?III???++++++++==============++++++++?????IIII?????II          '
+echo '       IIII?????+++++++++++++++++++++++++?????IIII777IIII            '
+echo '        IIIII???????+++++++++++++++?????????IIIII                    '
+echo '      Z887IIIIII?????????????????????????IIIIII7888                  '
+echo '    IOO8888IIIIIIIIII?????????????????IIIIIIII$8888OO                '
+echo '   OZZZO8888ZIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII8888OZZZO               '
+echo '  OZZZZZZO8888$IIIIIIIIIIIIIIIIIIIIIIIIIIII88OOOZ$$ZZZZ              '
+echo ' OZZZZZZ$ZO888888IIIIIIIIIIIIIIIIIIIIIIIZ88OOOOZ$$$$ZZZO             '
+echo 'IOZZZZZZZZZOO8888888$IIIIIIIIIIIIIII788888OOOZZ$$$$$ZZZOO            '
+echo 'ZOZZZZZZZZZZZO8888888888O?IIIII?Z88888888OOOZZ$$$$$ZZZZOO            '
+echo 'OOOZZZZZZZZZZOO88888888Z        ~$8888888OOZZZZZZZZZZZZOO=           '
+echo '7OOOZZZZZZZZZOOO88888              =88888OOZZZZZZZZZZZOOO            '
+echo ' O8OOOOOOOOOOOO88O7                   :O88OOOOOZZZZOOOO$             '
+echo '   Z888OO8888Z7                           :?O888OOO887               '
 
 # Load git completions
 git_completion_script=/usr/local/etc/bash_completion.d/git-completion.bash
 test -s $git_completion_script && source $git_completion_script
 
-source ~/.git-prompt.sh
 
 # A more colorful prompt
 # \[\e[0m\] resets the color to default color
@@ -44,6 +66,7 @@ c_git_dirty='\[\e[0;31m\]'
 PROMPT_COMMAND='PS1="${c_path}$(pwd)${c_reset}$(git_prompt) $> "'
 
 export PS1='\n\[\033[0;31m\]\W\[\033[0m\]$(git_prompt)\[\033[0m\]:> '
+export PS2='... '
 
 # determines if the git branch you are on is clean or dirty
 git_prompt ()
@@ -70,7 +93,7 @@ export LSCOLORS=ExGxFxdxCxDxDxaccxaeex
 export GREP_OPTIONS='--color=always'
 
 # Set sublime as the default editor
-which -a subl && export EDITOR="subl --wait"
+[[ $(which subl) ]] && export EDITOR="subl --wait"
 
 
 # enable color support of ls and also add handy aliases
@@ -90,12 +113,16 @@ if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
 
-pyenv() { . ~/Desktop/projects/django-tutorial/bin/activate; }
 cd() { builtin cd "$@"; ll; }
-mkcd () { mkdir -p "$1" && cd "$1"; }
-trash () { command mv "$@" ~/.local/share/Trash/files/ ; }
+pushd() { builtin pushd "$@"; ll; }
+mkcd() { mkdir -p "$1" && cd "$1"; }
+trash() { command mv "$@" ~/.local/share/Trash/files/ ; }
 te() { touch "$1"; subl "$1"; }
+# requires espeak
 say() { echo "$1" | espeak; }
+# requires xclip
+copy() { cat "$1" | xclip; }
+paste() { xclip -o > "$1"; }
 
 # requires underscore-cli
 github() {

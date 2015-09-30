@@ -1,4 +1,4 @@
-#!/home/andrew/.rbenv/shims/ruby
+#!/usr/bin/ruby
 
 remotes = `git remote -v`
 url = remotes.match(/origin\s*(https:\/\/github\.com\/(?:\S+)).git/)[1]

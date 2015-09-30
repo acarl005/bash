@@ -1,4 +1,4 @@
-#!/home/andrew/.rbenv/shims/ruby
+#!/usr/bin/ruby
 
 # To connect using the shell:
 # mongo ds051851.mongolab.com:51851/beatsocket -u <dbuser> -p <dbpassword>

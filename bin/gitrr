@@ -1,7 +1,7 @@
-#!/home/andrew/.rbenv/shims/ruby
+#!/usr/bin/ruby
 
-status = `git s`
-removals = status.scan(/^\sD\s(.*)$/)
+status = `git status --short`
+removals = status.scan(/^.D\s(.*)$/)
 removals.each { |path|
   system("git rm #{path[0]}")
 }
