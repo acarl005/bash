@@ -1,0 +1,37 @@
+[
+  {
+    "args":
+    {
+      "by": "lines",
+      "forward": true
+    },
+    "command": "move"
+  },
+  {
+    "args":
+    {
+      "extend": false,
+      "to": "eol"
+    },
+    "command": "move_to"
+  },
+  {
+    "args":
+    {
+      "characters": ","
+    },
+    "command": "insert"
+  },
+  {
+    "args":
+    {
+      "by": "lines",
+      "forward": false
+    },
+    "command": "move"
+  },
+  {
+    "args": null,
+    "command": "reindent"
+  }
+]

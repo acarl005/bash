@@ -1,0 +1,15 @@
+[
+  { "keys": ["ctrl+shift+v"], "command": "paste_and_indent" },
+  { "keys": ["ctrl+shift+."], "command": "erb" },
+  { "keys": ["ctrl+shift+right"], "command": "move_to", "args": {"to": "eol", "extend": false} },
+  { "keys": ["ctrl+shift+left"], "command": "move_to", "args": {"to": "bol", "extend": false} },
+  {
+    "keys": ["alt+c"],
+    "command": "insert_snippet",
+    "args": {"contents": "console.log($SELECTION${0});"}
+  },
+  { "keys": ["alt+;"], "command": "run_macro_file", "args": {"file": "Packages/User/semicolon.sublime-macro"} },
+  { "keys": ["alt+l"], "command": "run_macro_file", "args": {"file": "Packages/User/semicolon+.sublime-macro"} },
+  { "keys": ["alt+."], "command": "run_macro_file", "args": {"file": "Packages/User/period.sublime-macro"} },
+  { "keys": ["alt+,"], "command": "run_macro_file", "args": {"file": "Packages/User/comma.sublime-macro"} }
+]

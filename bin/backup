@@ -1,4 +1,4 @@
-set -s #exit on any failure
+set -e #exit on any failure
 
 if [[ ! "$1" ]]; then
   echo 'Enter a commit message.'
@@ -11,10 +11,12 @@ sublime="$HOME/.config/sublime-text-2/Packages/User"
 
 test -d $sublime && {
   cp "$sublime/Preferences.sublime-settings" ./
-  cp "$sublime/Default\ \(Linux\).sublime-keymap" ./
-  for f in *.sublime-macro; do 
-    cp $f ./subl_macros/
+  cp "$sublime/Default (Linux).sublime-keymap" ./
+  pushd $sublime
+  for f in *.sublime-macro; do
+    cp $f ~/Desktop/projects/bash/subl_macros/
   done
+  popd
 }
 
 cp ~/.bashrc ./
@@ -23,7 +25,7 @@ cp -R ~/opt/bin ./
 cp ~/.gitconfig ./
 cp ~/.inputrc ./
 cp ~/.profile ./
-cp ~/.conky ./
+cp -R ~/.conky ./
 git add .
 git commit -m "$1"
 git push origin master
