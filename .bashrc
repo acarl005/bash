@@ -58,7 +58,7 @@ c_git_clean='\[\e[0;32m\]'
 c_git_dirty='\[\e[0;31m\]'
 
 # PS1 is the variable for the prompt you see everytime you hit enter
-PROMPT_COMMAND='PS1="${c_path}$(pwd)${c_reset}$(git_prompt) $> "'
+PROMPT_COMMAND='PS1="${c_path}$(pwd)${c_reset}$(git_prompt) \e[0;36m𐎆 \e[m "'
 
 export PS1='\n\[\033[0;31m\]\W\[\033[0m\]$(git_prompt)\[\033[0m\]:> '
 export PS2='... '
