@@ -5,7 +5,7 @@ if [[ ! "$1" ]]; then
   exit 1
 fi
 
-pushd ~/Desktop/projects/bash
+pushd ~/Documents/projects/bash
 
 sublime="$HOME/.config/sublime-text-2/Packages/User"
 
@@ -14,7 +14,7 @@ test -d $sublime && {
   cp "$sublime/Default (Linux).sublime-keymap" ./
   pushd $sublime
   for f in *.sublime-macro; do
-    cp $f ~/Desktop/projects/bash/subl_macros/
+    cp $f ~/Documents/projects/bash/subl_macros/
   done
   popd
 }

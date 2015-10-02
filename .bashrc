@@ -1,51 +1,46 @@
 # fix bug with atheros network card
-# https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1436940
+# http://askubuntu.com/questions/678145/my-wifi-qualcomm-atheros-device-168c0041-rev-20-doesnt-show-up-and-work-in
 # fix gulp watch error 
 # echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
 # include custom scripts
 PATH=$PATH:~/opt/bin
-
 date=$(date);
+echo '                    MMMMMMMMMMMMMMMMMMM                     '
+echo '                    MMMMMMMMMMMMMMMMMMM                     '
+echo '             MMMMMMMMMM   ZZZZZZZ   MMMMMMMMMM              '
+echo '             MMMMMMMMMM   ZZZZZZZ   MMMMMMMMMM              '
+echo '          MMMMMM          ZZZZZZZ         ,MMMMMM           '
+echo '          MMMMMM          ZZZZZZZ         ,MMMMMM           '
+echo '       MMMMMMZZZ       ZZZZZZZZZZZZZ       ZZZMMMMMM        '
+echo '       MMMMMMZZZ       ZZZZZZZZZZZZZ       ZZZMMMMMM        '
+echo '       MMM   ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ   MMM        '
+echo '       MMM   ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ   MMM        '
+echo '   MMMMMMM      ZZZZZZZ             ZZZZZZ$      MMMMMMM    '
+echo '   MMMMMMM      ZZZZZZZ             ZZZZZZ$      MMMMMMM    '
+echo '   MMMM         ZZZZ                   ZZZ$         MMMM    '
+echo '   MMMM         ZZZZ                   ZZZ$         MMMM    '
+echo '   MMMM         ZZZZ                   ZZZ$         MMMM    '
+echo '   MMMM         ZZZZ                   ZZZ$         MMMM    '
+echo '   MMMM      ZZZZZZZ                   ZZZZZZZ      MMMM    '
+echo '   MMMM      ZZZZZZZ                   ZZZZZZZ      MMMM    '
+echo '   MMMMZZZZZZZZZZZZZZZZ             ZZZZZZZZZ$ZZZZZZMMMM    '
+echo '   MMMMZZZZZZZZZZZZZZZZ             ZZZZZZZZZZZZZZZZMMMM    '
+echo '   MMMMZZZZZZMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMZZZZZZMMMM    '
+echo '   MMMMZZZZZZMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMZZZZZZMMMM    '
+echo '   MMMMMMMMMMMMM       MMM       MMM      .MMMMMMMMMMMMM    '
+echo '   MMMMMMMMMMMMM       MMM       MMM      ,MMMMMMMMMMMMM    '
+echo '   ZZZZMMMMMMZZZ       MMM       MMM      .ZZZMMMMMMZZZO    '
+echo '       MMMMMM          MMM       MMM          MMMMMM        '
+echo '       DDDMMM          DDD       DDD          MMMDDD        '
+echo '          MMM                                 MMM           '
+echo '          MMM                                .MMM           '
+echo '          MMMMMM                          ,MMMMMM           '
+echo '          MMMMMM                          ,MMMMMM           '
+echo '             MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM              '
+echo '             MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM              '
 echo "Welcome, $USER! It's $date."
 echo "You're logged in at $(hostname)."
-echo                                                                
-echo '     +===+             ==~~~~~~~==                                   '
-echo '   ==~~~~~~~=      ~~~:::::::::::::~~~+                              '
-echo ' ?==~~~~~~~~~= +~~~::::::,,,,,:::::::~~~~+                           '
-echo ' +=~~~~::::~~=~~~::::,,,,,,,,,,,,,:::::~~~~+                         '
-echo '?+=~~~~~:::~=~~::::,,,,,,,,,,,,,,,,::::::~~~=+                       '
-echo '?+==~~~~::~=~~:::::,,,,,,,,,,,,,,,,,:::::~~~~=+                      '
-echo '?+==~~~~~==~~:::::,,,7O=M,,,,,,,N~I+,:::::~~~~=+                     '
-echo ' ?+==~~~==~~~:::::,,,$  ,=,,,,,7?  8:::::::~~~~=+                    '
-echo ' I?===~+=~~~~:::::,,~+  .O,,,,,M+  7O::::::~~~~==+                   '
-echo ' ??+=====~~~~::::::,$N. OD,,,,,MN  MM::::::~~~~==++                  '
-echo '  ??+++==~~~~::::::,8MMMMN,,,,,MMMMMM:::::~~~~~===+?                 '
-echo '   I??+==~~~~:::::::8MMMM8,,,,,MNMMNM::::~~~~~~===+?                 '
-echo '    I++==~~~~~~:::::$8888I:::::88888M:::~~~~~~~===+?+                '
-echo '    ?++===~~====~::::ZZZ8,:::::~MZZ87::~~==+=====++??~=              '
-echo '    ?++====++++++=~::N8N8:::::::+8ZO:~~+++++++===++??~~=+            '
-echo '    ??++====+++++=~~~::::::~=~~:::~~~~~+++++?===+++?I~~~==           '
-echo '    I?+++=======~~~~~~~~~NDDDDDN=~~~~~~~~======++++?I~~~~==          '
-echo '    ???++======~~~~~~~~~~8OZZZZ8=~~~~~~~~=====++++??I~~~~==+         '
-echo '    ?I?++++======~~~~~~~~7$$$$$I~~~~~~~======++++???I~~~~==+?        '
-echo '     I???+++========~~~~~~~ZZZ~~~~~=========++++???I?~~====+?        '
-echo '     II???++++============================+++++???II+====++??        '
-echo '      II???++++++======================++++++????III+++++??I         '
-echo '      ?III???++++++++==============++++++++?????IIII?????II          '
-echo '       IIII?????+++++++++++++++++++++++++?????IIII777IIII            '
-echo '        IIIII???????+++++++++++++++?????????IIIII                    '
-echo '      Z887IIIIII?????????????????????????IIIIII7888                  '
-echo '    IOO8888IIIIIIIIII?????????????????IIIIIIII$8888OO                '
-echo '   OZZZO8888ZIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII8888OZZZO               '
-echo '  OZZZZZZO8888$IIIIIIIIIIIIIIIIIIIIIIIIIIII88OOOZ$$ZZZZ              '
-echo ' OZZZZZZ$ZO888888IIIIIIIIIIIIIIIIIIIIIIIZ88OOOOZ$$$$ZZZO             '
-echo 'IOZZZZZZZZZOO8888888$IIIIIIIIIIIIIII788888OOOZZ$$$$$ZZZOO            '
-echo 'ZOZZZZZZZZZZZO8888888888O?IIIII?Z88888888OOOZZ$$$$$ZZZZOO            '
-echo 'OOOZZZZZZZZZZOO88888888Z        ~$8888888OOZZZZZZZZZZZZOO=           '
-echo '7OOOZZZZZZZZZOOO88888              =88888OOZZZZZZZZZZZOOO            '
-echo ' O8OOOOOOOOOOOO88O7                   :O88OOOOOZZZZOOOO$             '
-echo '   Z888OO8888Z7                           :?O888OOO887               '
 
 # Load git completions
 git_completion_script=/usr/local/etc/bash_completion.d/git-completion.bash

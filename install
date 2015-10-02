@@ -4,7 +4,7 @@ sudo add-apt-repository ppa:webupd8team/sublime-text-2
 sudo apt-get update
 sudo apt-get install sublime-text
 
-sublime="$HOME/.config/sublime-text-2/Packages/User"
+export sublime="$HOME/.config/sublime-text-2/Packages/User"
 
 test -d $sublime && {
   cp Preferences.sublime-settings $sublime/
@@ -24,3 +24,4 @@ cp .gitconfig ~/
 cp .inputrc ~/
 cp .profile ~/
 cp -R .conky/ ~/
+
