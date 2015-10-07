@@ -2,7 +2,14 @@
 
 var exec = require('child_process').exec;
 
+var remote = process.argv[2] || 'origin';
+var re = new RegExp(remote + "\\s*(https:\\/\\/github\\.com\\/(?:\\S+)).git");
+
 exec('git remote -v', function(err, out) {
-  var url = out.match(/origin\s*(https:\/\/github\.com\/(?:\S+)).git/)[1];
-  exec('google-chrome ' + url);
+  try {
+    var url = out.match(re)[1];
+    exec('google-chrome ' + url);
+  } catch (err) {
+    console.error('\033[31mremote ' + remote + ' is not known')
+  }
 });

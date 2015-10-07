@@ -5,67 +5,61 @@
 
 # include custom scripts
 PATH=$PATH:~/opt/bin
-date=$(date);
-echo '                    MMMMMMMMMMMMMMMMMMM                     '
-echo '                    MMMMMMMMMMMMMMMMMMM                     '
-echo '             MMMMMMMMMM   ZZZZZZZ   MMMMMMMMMM              '
-echo '             MMMMMMMMMM   ZZZZZZZ   MMMMMMMMMM              '
-echo '          MMMMMM          ZZZZZZZ         ,MMMMMM           '
-echo '          MMMMMM          ZZZZZZZ         ,MMMMMM           '
-echo '       MMMMMMZZZ       ZZZZZZZZZZZZZ       ZZZMMMMMM        '
-echo '       MMMMMMZZZ       ZZZZZZZZZZZZZ       ZZZMMMMMM        '
-echo '       MMM   ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ   MMM        '
-echo '       MMM   ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ   MMM        '
-echo '   MMMMMMM      ZZZZZZZ             ZZZZZZ$      MMMMMMM    '
-echo '   MMMMMMM      ZZZZZZZ             ZZZZZZ$      MMMMMMM    '
-echo '   MMMM         ZZZZ                   ZZZ$         MMMM    '
-echo '   MMMM         ZZZZ                   ZZZ$         MMMM    '
-echo '   MMMM         ZZZZ                   ZZZ$         MMMM    '
-echo '   MMMM         ZZZZ                   ZZZ$         MMMM    '
-echo '   MMMM      ZZZZZZZ                   ZZZZZZZ      MMMM    '
-echo '   MMMM      ZZZZZZZ                   ZZZZZZZ      MMMM    '
-echo '   MMMMZZZZZZZZZZZZZZZZ             ZZZZZZZZZ$ZZZZZZMMMM    '
-echo '   MMMMZZZZZZZZZZZZZZZZ             ZZZZZZZZZZZZZZZZMMMM    '
-echo '   MMMMZZZZZZMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMZZZZZZMMMM    '
-echo '   MMMMZZZZZZMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMZZZZZZMMMM    '
-echo '   MMMMMMMMMMMMM       MMM       MMM      .MMMMMMMMMMMMM    '
-echo '   MMMMMMMMMMMMM       MMM       MMM      ,MMMMMMMMMMMMM    '
-echo '   ZZZZMMMMMMZZZ       MMM       MMM      .ZZZMMMMMMZZZO    '
-echo '       MMMMMM          MMM       MMM          MMMMMM        '
-echo '       DDDMMM          DDD       DDD          MMMDDD        '
-echo '          MMM                                 MMM           '
-echo '          MMM                                .MMM           '
-echo '          MMMMMM                          ,MMMMMM           '
-echo '          MMMMMM                          ,MMMMMM           '
-echo '             MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM              '
-echo '             MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM              '
-echo "Welcome, $USER! It's $date."
+echo '           /\            '
+echo '          /  \           '
+echo '         /    \          '
+echo '        /      \         '
+echo '       /        \        '
+echo '      /__________\       '
+echo '     /\__________/\      '
+echo '    /  \        /  \     '
+echo '   /    \      /    \    '
+echo '  /      \    /      \   '
+echo ' /        \  /        \  '
+echo '/__________\/__________\ '
+echo '\__________/\__________/ '
+echo
+echo "Welcome, $USER! It's $(date)."
 echo "You're logged in at $(hostname)."
+echo; echo
 
 # Load git completions
 git_completion_script=/usr/local/etc/bash_completion.d/git-completion.bash
 test -s $git_completion_script && source $git_completion_script
 
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
 
 # A more colorful prompt
 # \[\e[0m\] resets the color to default color
 c_reset='\[\e[0m\]'
-#  \e[0;31m\ sets the color to red
-c_path='\[\e[0;31m\]'
+# \e[0;31m\ sets the color to purple
+c_path='\[\e[1;35m\]'
+c_purple='\[\e[1;35m\]'
+# \e[0;36m\ sets the color to cyan
+c_cyan='\[\e[1;36m\]'
 # \e[0;32m\ sets the color to green
-c_git_clean='\[\e[0;32m\]'
+c_git_clean='\[\e[1;32m\]'
+c_green='\[\e[1;32m\]'
 # \e[0;31m\ sets the color to red
-c_git_dirty='\[\e[0;31m\]'
+c_git_dirty='\[\e[1;31m\]'
+c_red='\[\e[1;31m\]'
 
 # PS1 is the variable for the prompt you see everytime you hit enter
-PROMPT_COMMAND='PS1="${c_path}$(pwd)${c_reset}$(git_prompt) \e[0;36m𐎆 \e[m "'
-
-export PS1='\n\[\033[0;31m\]\W\[\033[0m\]$(git_prompt)\[\033[0m\]:> '
+PROMPT_COMMAND='PS1="${c_path}$(pwd)${c_reset}$(git_prompt) ${c_red}💎${c_green}💎${c_cyan}💎${c_purple}💎 \e[m "'
 export PS2='... '
 
 # determines if the git branch you are on is clean or dirty
-git_prompt ()
-{
+git_prompt() {
   if ! git rev-parse --git-dir > /dev/null 2>&1; then
     return 0
   fi
@@ -93,14 +87,14 @@ export GREP_OPTIONS='--color=always'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls --color=auto'
+  #alias dir='dir --color=auto'
+  #alias vdir='vdir --color=auto'
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
 fi
 
 # Alias definitions.
@@ -133,7 +127,7 @@ github() {
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
 
 #extract most known archives
-extract () {
+extract() {
   if [ -f $1 ] ; then
     case $1 in
       *.tar.xz)    tar xvfJ $1    ;;
@@ -149,27 +143,16 @@ extract () {
       *.Z)         uncompress $1  ;;
       *.7z)        7z x $1        ;;
       *)     echo "'$1' cannot be extracted via extract()" ;;
-       esac
-   else
-       echo "'$1' is not a valid file"
-   fi
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
 }
 
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-fi
 
 
 #   ----------------
@@ -189,14 +172,14 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
 
 #   ii:  display useful host related informaton
 #   -------------------------------------------------------------------
-    ii() {
-        echo -e "\nYou are logged on ${RED}$HOST"
-        echo -e "\nAdditionnal information:$NC " ; uname -a
-        echo -e "\n${RED}Users logged on:$NC " ; w -h
-        echo -e "\n${RED}Current date :$NC " ; date
-        echo -e "\n${RED}Machine stats :$NC " ; uptime
-        echo -e "\n${RED}Current network location :$NC " ; scselect
-        echo -e "\n${RED}Public facing IP Address :$NC " ;myip
-        # echo -e "\n${RED}DNS Configuration:$NC " ; scutil --dns
-        echo
-    }
+ii() {
+  echo -e "\nYou are logged on ${RED}$HOST"
+  echo -e "\nAdditionnal information:$NC " ; uname -a
+  echo -e "\n${RED}Users logged on:$NC " ; w -h
+  echo -e "\n${RED}Current date :$NC " ; date
+  echo -e "\n${RED}Machine stats :$NC " ; uptime
+  echo -e "\n${RED}Current network location :$NC " ; scselect
+  echo -e "\n${RED}Public facing IP Address :$NC " ;myip
+  # echo -e "\n${RED}DNS Configuration:$NC " ; scutil --dns
+  echo
+}
