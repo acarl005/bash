@@ -54,11 +54,14 @@ c_green='\[\e[1;32m\]'
 c_git_dirty='\[\e[1;31m\]'
 c_red='\[\e[1;31m\]'
 
+wd=$(pwd)
+short_wd=${wd/\/home\/andy/\~}
 # PS1 is the variable for the prompt you see everytime you hit enter
-PROMPT_COMMAND='PS1="${c_path}$(pwd)${c_reset}$(git_prompt) ${c_red}💎${c_green}💎${c_cyan}💎${c_purple}💎 \e[m "'
+PROMPT_COMMAND='PS1="${c_path}${short_wd}${c_reset}$(git_prompt) ${c_red}💎${c_green}💎${c_cyan}💎${c_purple}💎 ${c_reset} "; \
+                echo -ne "\033]2;${PWD/#${HOME}/\~}\007" '
 export PS2='... '
 
-# determines if the git branch you are on is clean or dirty
+# determines if the git branch you are on is clean or dirty and colors accordingly
 git_prompt() {
   if ! git rev-parse --git-dir > /dev/null 2>&1; then
     return 0
@@ -116,11 +119,15 @@ paste() { xclip -o > "$1"; }
 # requires underscore-cli
 github() {
   if [ ! -d .git ] ; then git init; fi
-  res=$(curl https://api.github.com/user/repos -u acarl005 -X POST -d "{\"name\":\"$1\"}");
-  clone_url=$( echo $res | underscore extract clone_url | sed -e 's/^"//'  -e 's/"$//'); #remove quotes
-  git remote add origin "$clone_url";
-  echo "created github repository ($1) at:";
-  echo $res | underscore extract svn_url;
+  res=$(curl https://api.github.com/user/repos -u acarl005 -X POST -d "{\"name\":\"$1\"}")
+  clone_url=$( echo $res | underscore extract clone_url | sed -e 's/^"//'  -e 's/"$//') #remove quotes
+  git remote add origin "$clone_url"
+  if [[ ! -f README.md ]]; then echo "# $1" > README.md; fi
+  git add .
+  git commit -m 'initial commit'
+  git push origin master
+  echo "created github repository ($1) at:"
+  echo $res | underscore extract svn_url
 }
 
 #full recursive directory listing

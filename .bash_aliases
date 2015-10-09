@@ -40,6 +40,8 @@ alias day="redshift -O 6500"
 alias night="redshift -O 3700"
 alias twilight="redshift -O 5000"
 
+mirror="xrandr --output HDMI1 --auto --same-as eDP1; xrandr --output HDMI1 --mode 1920x1080"
+
 #common typos
 alias gits="git s"
 alias pod=popd
