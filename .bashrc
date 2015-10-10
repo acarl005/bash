@@ -5,20 +5,20 @@
 
 # include custom scripts
 PATH=$PATH:~/opt/bin
-echo '           /\            '
-echo '          /  \           '
-echo '         /    \          '
-echo '        /      \         '
-echo '       /        \        '
-echo '      /__________\       '
-echo '     /\__________/\      '
-echo '    /  \        /  \     '
-echo '   /    \      /    \    '
-echo '  /      \    /      \   '
-echo ' /        \  /        \  '
-echo '/__________\/__________\ '
-echo '\__________/\__________/ '
-echo
+echo -e "\e[1;93m           /\            "
+echo -e "          /  \           "
+echo -e "         /    \          "
+echo -e "        /      \         "
+echo -e "       /        \        "
+echo -e "      /__________\       "
+echo -e "     /\__________/\      "
+echo -e "    /  \        /  \     "
+echo -e "   /    \      /    \    "
+echo -e "  /      \    /      \   "
+echo -e " /        \  /        \  "
+echo -e "/__________\/__________\ "
+echo -e "\__________/\__________/ "
+echo -e "\e[0m"
 echo "Welcome, $USER! It's $(date)."
 echo "You're logged in at $(hostname)."
 echo; echo
@@ -42,11 +42,13 @@ fi
 # A more colorful prompt
 # \[\e[0m\] resets the color to default color
 c_reset='\[\e[0m\]'
-# \e[0;31m\ sets the color to purple
+# \e[0;35m\ sets the color to purple
 c_path='\[\e[1;35m\]'
 c_purple='\[\e[1;35m\]'
 # \e[0;36m\ sets the color to cyan
 c_cyan='\[\e[1;36m\]'
+# \e[0;36m\ sets the color to yellow
+c_yellow='\[\e[0;93m\]'
 # \e[0;32m\ sets the color to green
 c_git_clean='\[\e[1;32m\]'
 c_green='\[\e[1;32m\]'
