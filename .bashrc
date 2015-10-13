@@ -50,16 +50,18 @@ c_cyan='\[\e[1;36m\]'
 # \e[0;36m\ sets the color to yellow
 c_yellow='\[\e[0;93m\]'
 # \e[0;32m\ sets the color to green
-c_git_clean='\[\e[1;32m\]'
 c_green='\[\e[1;32m\]'
 # \e[0;31m\ sets the color to red
-c_git_dirty='\[\e[1;31m\]'
 c_red='\[\e[1;31m\]'
+# use this to make text bold
+bold=$(tput bold)
+unbold=$(tput sgr0)
 
-wd=$(pwd)
-short_wd=${wd/\/home\/andy/\~}
+
 # PS1 is the variable for the prompt you see everytime you hit enter
-PROMPT_COMMAND='PS1="${c_path}${short_wd}${c_reset}$(git_prompt) ${c_red}💎${c_green}💎${c_cyan}💎${c_purple}💎 ${c_reset} "; \
+PROMPT_COMMAND='wd=$(pwd) \
+                short_wd=${wd/\/home\/andy/\~} \
+                PS1="${c_path}${short_wd}${c_reset}$(git_prompt) ${c_red}💎${c_green}💎${c_cyan}💎${c_purple}💎 ${c_reset} "; \
                 echo -ne "\033]2;${PWD/#${HOME}/\~}\007" '
 export PS2='... '
 
@@ -69,14 +71,14 @@ git_prompt() {
     return 0
   fi
   # Grab working branch name
-  git_branch=$(__git_ps1)
+  branch=$(__git_ps1)
   # Clean or dirty branch
   if git diff --quiet 2>/dev/null >&2; then
-    git_color="${c_git_clean}"
+    git_icon="${c_green}✓"
   else
-    git_color=${c_git_dirty}
+    git_icon="${c_red}✗"
   fi
-  echo "$git_color$git_branch${c_reset}"
+  echo "${c_cyan}${branch:0:-1}${git_icon}${c_cyan})${c_reset}"
 }
 
 # Colors ls should use for folders, files, symlinks etc, see `man ls` and
