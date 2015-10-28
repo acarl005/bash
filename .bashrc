@@ -73,10 +73,12 @@ git_prompt() {
   # Grab working branch name
   branch=$(__git_ps1)
   # Clean or dirty branch
-  if git diff --quiet 2>/dev/null >&2; then
-    git_icon="${c_green}✓"
-  else
+  if [[ $(git diff) ]]; then
     git_icon="${c_red}✗"
+  elif [[ $(git status --short) ]]; then
+    git_icon="${c_yellow}✎"
+  else
+    git_icon="${c_green}✓"
   fi
   echo "${c_cyan}${branch:0:-1}${git_icon}${c_cyan})${c_reset}"
 }

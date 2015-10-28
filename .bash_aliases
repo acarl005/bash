@@ -12,18 +12,25 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias al='subl ~/.bash_aliases'
 alias rc='subl ~/.bashrc'
-alias desk='pushd ~/Desktop/'
-alias proj='pushd ~/Documents/projects/'
-alias prod='pushd ~/Documents/production/'
-alias cosm='pushd ~/Documents/codesmith/'
-alias down='pushd ~/Downloads/'
-alias docs='pushd ~/Documents/'
-alias site='pushd ~/Documents/production/codesmith-public-site'
 alias be="bundle exec"
 alias serv="python -m SimpleHTTPServer"
 alias conk="conky -d -c ~/.conky/conkyrc_seamod"
 alias chrome="google-chrome"
 alias fresh="source ~/.bashrc"
+alias desk='pushd ~/Desktop/'
+export desk='~/Desktop/'
+alias proj='pushd ~/Documents/projects/'
+export proj='~/Documents/projects/'
+alias prod='pushd ~/Documents/production/'
+export prod='~/Documents/production/'
+alias cosm='pushd ~/Documents/codesmith/'
+export cosm='~/Documents/codesmith/'
+alias down='pushd ~/Downloads/'
+export down='~/Downloads/'
+alias docs='pushd ~/Documents/'
+export docs='~/Documents/'
+alias site='pushd ~/Documents/production/codesmith-public-site'
+export site='~/Documents/production/codesmith-public-site'
 
 alias ni="npm install"
 alias ns="npm start"
@@ -45,3 +52,5 @@ mirror="xrandr --output HDMI1 --auto --same-as eDP1; xrandr --output HDMI1 --mod
 #common typos
 alias gits="git s"
 alias pod=popd
+
+
