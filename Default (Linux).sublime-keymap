@@ -11,5 +11,6 @@
   { "keys": ["alt+;"], "command": "run_macro_file", "args": {"file": "Packages/User/semicolon.sublime-macro"} },
   { "keys": ["alt+l"], "command": "run_macro_file", "args": {"file": "Packages/User/semicolon+.sublime-macro"} },
   { "keys": ["alt+."], "command": "run_macro_file", "args": {"file": "Packages/User/period.sublime-macro"} },
-  { "keys": ["alt+,"], "command": "run_macro_file", "args": {"file": "Packages/User/comma.sublime-macro"} }
+  { "keys": ["alt+,"], "command": "run_macro_file", "args": {"file": "Packages/User/comma.sublime-macro"} },
+  { "keys": ["shift+backspace"], "command": "right_delete" }
 ]
