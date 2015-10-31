@@ -37,6 +37,7 @@ alias ns="npm start"
 alias nsd="npm run start-dev"
 alias nt="npm test"
 alias nr="npm run"
+alias gulp="gulp 2>/dev/null || ./node_modules/.bin/gulp"
 
 alias casper="node_modules/.bin/casperjs --ssl-protocol=any --ignore-ssl-errors=yes test"
 
