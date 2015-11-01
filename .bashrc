@@ -53,17 +53,24 @@ c_yellow='\[\e[0;93m\]'
 c_green='\[\e[1;32m\]'
 # \e[0;31m\ sets the color to red
 c_red='\[\e[1;31m\]'
-# use this to make text bold
-bold=$(tput bold)
-unbold=$(tput sgr0)
 
+gems="${c_red}💎${c_green}💎${c_cyan}💎${c_purple}💎 ${c_reset}"
 
 # PS1 is the variable for the prompt you see everytime you hit enter
-PROMPT_COMMAND='wd=$(pwd) \
-                short_wd=${wd/\/home\/andy/\~} \
-                PS1="${c_path}${short_wd}${c_reset}$(git_prompt) ${c_red}💎${c_green}💎${c_cyan}💎${c_purple}💎 ${c_reset} "; \
+PROMPT_COMMAND='PS1="$(format_pwd)$(git_prompt) ${gems} "; \
                 echo -ne "\033]2;${PWD/#${HOME}/\~}\007" '
 export PS2='... '
+
+format_pwd() {
+  wd=$(pwd)
+  short_wd=${wd/\/home\/andy/\~}
+  first_char=$(echo $short_wd | cut -c 1-1)
+  if [[ $first_char != '~' ]]; then
+    short_wd="${c_reset}\e[0;0;40m💀 ${c_reset}${c_path}${short_wd}"
+  fi
+  echo -e "${c_path}${short_wd}"
+}
+
 
 # determines if the git branch you are on is clean or dirty and colors accordingly
 git_prompt() {

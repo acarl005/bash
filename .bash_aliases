@@ -17,18 +17,20 @@ alias serv="python -m SimpleHTTPServer"
 alias conk="conky -d -c ~/.conky/conkyrc_seamod"
 alias chrome="google-chrome"
 alias fresh="source ~/.bashrc"
-alias desk='pushd ~/Desktop/'
-export desk='~/Desktop/'
-alias proj='pushd ~/Documents/projects/'
-export proj='~/Documents/projects/'
-alias prod='pushd ~/Documents/production/'
-export prod='~/Documents/production/'
-alias cosm='pushd ~/Documents/codesmith/'
-export cosm='~/Documents/codesmith/'
-alias down='pushd ~/Downloads/'
-export down='~/Downloads/'
-alias docs='pushd ~/Documents/'
-export docs='~/Documents/'
+
+
+alias desk='pushd ~/Desktop'
+export desk='~/Desktop'
+alias proj='pushd ~/Documents/projects'
+export proj='~/Documents/projects'
+alias prod='pushd ~/Documents/production'
+export prod='~/Documents/production'
+alias cosm='pushd ~/Documents/codesmith'
+export cosm='~/Documents/codesmith'
+alias down='pushd ~/Downloads'
+export down='~/Downloads'
+alias docs='pushd ~/Documents'
+export docs='~/Documents'
 alias site='pushd ~/Documents/production/codesmith-public-site'
 export site='~/Documents/production/codesmith-public-site'
 
