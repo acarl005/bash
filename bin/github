@@ -1,0 +1,33 @@
+c_reset='\e[0m'
+c_red='\e[0;31;40m'
+c_green='\e[0;32;40m'
+c_cyan='\e[0;36m'
+
+if [[ ! $(which underscore) ]]; then 
+  echo -e "${c_red}This script depends on underscore-cli. Try again after running:"
+  echo -e "${c_green}npm install -g underscore-cli${c_reset}"
+  exit 1
+fi
+
+if [ ! -d .git ] ; then git init; fi
+
+name="$1"
+if [[ ! -n $name ]]; then name=${PWD##*/}; fi  
+
+res=$(curl https://api.github.com/user/repos -u acarl005 -X POST -d "{\"name\":\"$name\"}")
+err_message=$( echo $res | underscore extract message 2> /dev/null ) 
+if [[ -n $err_message ]]; then
+  echo -e "${c_red}ERROR: ${err_message}${c_reset}"
+  echo $res | underscore print --color
+  exit 1
+fi
+
+clone_url=$( echo $res | underscore extract clone_url | sed -e 's/^"//'  -e 's/"$//') #remove quotes
+git remote add origin "$clone_url"
+if [[ ! -f README.md ]]; then echo "# $name" > README.md; fi
+git add .
+git commit -m 'initial commit'
+git push origin master
+echo -e "${c_cyan}created github repository ($name) at:${c_green}"
+echo -e $res | underscore extract svn_url
+echo -e $c_reset

@@ -130,18 +130,18 @@ copy() { cat "$1" | xclip; }
 paste() { xclip -o > "$1"; }
 
 # requires underscore-cli
-github() {
-  if [ ! -d .git ] ; then git init; fi
-  res=$(curl https://api.github.com/user/repos -u acarl005 -X POST -d "{\"name\":\"$1\"}")
-  clone_url=$( echo $res | underscore extract clone_url | sed -e 's/^"//'  -e 's/"$//') #remove quotes
-  git remote add origin "$clone_url"
-  if [[ ! -f README.md ]]; then echo "# $1" > README.md; fi
-  git add .
-  git commit -m 'initial commit'
-  git push origin master
-  echo "created github repository ($1) at:"
-  echo $res | underscore extract svn_url
-}
+# github() {
+#   if [ ! -d .git ] ; then git init; fi
+#   res=$(curl https://api.github.com/user/repos -u acarl005 -X POST -d "{\"name\":\"$1\"}")
+#   clone_url=$( echo $res | underscore extract clone_url | sed -e 's/^"//'  -e 's/"$//') #remove quotes
+#   git remote add origin "$clone_url"
+#   if [[ ! -f README.md ]]; then echo "# $1" > README.md; fi
+#   git add .
+#   git commit -m 'initial commit'
+#   git push origin master
+#   echo "created github repository ($1) at:"
+#   echo $res | underscore extract svn_url
+# }
 
 #full recursive directory listing
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
