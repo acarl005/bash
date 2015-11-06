@@ -42,8 +42,8 @@ fi
 # A more colorful prompt
 # \[\e[0m\] resets the color to default color
 c_reset='\[\e[0m\]'
+co_white='\e[0m'
 # \e[0;35m\ sets the color to purple
-c_path='\[\e[1;35m\]'
 c_purple='\[\e[1;35m\]'
 # \e[0;36m\ sets the color to cyan
 c_cyan='\[\e[1;36m\]'
@@ -53,6 +53,7 @@ c_yellow='\[\e[0;93m\]'
 c_green='\[\e[1;32m\]'
 # \e[0;31m\ sets the color to red
 c_red='\[\e[1;31m\]'
+co_red='\e[0;31m'
 
 gems="${c_red}💎${c_green}💎${c_cyan}💎${c_purple}💎 ${c_reset}"
 
@@ -66,9 +67,9 @@ format_pwd() {
   short_wd=${wd/\/home\/andy/\~}
   first_char=$(echo $short_wd | cut -c 1-1)
   if [[ $first_char != '~' ]]; then
-    short_wd="${c_reset}\e[0;0;40m💀 ${c_reset}${c_path}${short_wd}"
+    short_wd="${c_reset}\e[0;0;40m💀 ${c_reset}${c_purple}${short_wd}"
   fi
-  echo -e "${c_path}${short_wd}"
+  echo -e "${c_purple}${short_wd}"
 }
 
 
@@ -105,8 +106,8 @@ export GREP_OPTIONS='--color=always'
 if [ -x /usr/bin/dircolors ]; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
   alias ls='ls --color=auto'
-  #alias dir='dir --color=auto'
-  #alias vdir='vdir --color=auto'
+  alias dir='dir --color=auto'
+  alias vdir='vdir -A --color=auto'
 
   alias grep='grep --color=auto'
   alias fgrep='fgrep --color=auto'
@@ -125,23 +126,12 @@ trash() { command mv "$@" ~/.local/share/Trash/files/ ; }
 te() { touch "$1"; subl "$1"; }
 # requires espeak
 say() { echo "$1" | espeak; }
-# requires xclip
-copy() { cat "$1" | xclip; }
-paste() { xclip -o > "$1"; }
 
-# requires underscore-cli
-# github() {
-#   if [ ! -d .git ] ; then git init; fi
-#   res=$(curl https://api.github.com/user/repos -u acarl005 -X POST -d "{\"name\":\"$1\"}")
-#   clone_url=$( echo $res | underscore extract clone_url | sed -e 's/^"//'  -e 's/"$//') #remove quotes
-#   git remote add origin "$clone_url"
-#   if [[ ! -f README.md ]]; then echo "# $1" > README.md; fi
-#   git add .
-#   git commit -m 'initial commit'
-#   git push origin master
-#   echo "created github repository ($1) at:"
-#   echo $res | underscore extract svn_url
-# }
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+hl() {
+  pbpaste | highlight -O xterm256 -S "$1" -l | pbcopy;
+}
 
 #full recursive directory listing
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
@@ -189,17 +179,3 @@ alias ipInfo0='ipconfig getpacket en0'              # ipInfo0:      Get info on 
 alias ipInfo1='ipconfig getpacket en1'              # ipInfo1:      Get info on connections for en1
 alias openPorts='sudo lsof -i | grep LISTEN'        # openPorts:    All listening connections
 alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rules inc/ blocked IPs
-
-#   ii:  display useful host related informaton
-#   -------------------------------------------------------------------
-ii() {
-  echo -e "\nYou are logged on ${RED}$HOST"
-  echo -e "\nAdditionnal information:$NC " ; uname -a
-  echo -e "\n${RED}Users logged on:$NC " ; w -h
-  echo -e "\n${RED}Current date :$NC " ; date
-  echo -e "\n${RED}Machine stats :$NC " ; uptime
-  echo -e "\n${RED}Current network location :$NC " ; scselect
-  echo -e "\n${RED}Public facing IP Address :$NC " ;myip
-  # echo -e "\n${RED}DNS Configuration:$NC " ; scutil --dns
-  echo
-}
