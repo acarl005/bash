@@ -23,6 +23,7 @@ cp ~/.bashrc ./
 cp ~/.bash_aliases ./
 cp -R ~/opt/bin ./
 cp ~/.gitconfig ./
+cp ~/.gitignore_global ./
 cp ~/.inputrc ./
 cp ~/.profile ./
 cp -R ~/.conky ./
