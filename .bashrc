@@ -40,18 +40,18 @@ fi
 
 
 # A more colorful prompt
-# \[\e[0m\] resets the color to default color
+# resets the color to default color
 c_reset='\[\e[0m\]'
 co_white='\e[0m'
-# \e[0;35m\ sets the color to purple
+# sets the color to purple
 c_purple='\[\e[1;35m\]'
-# \e[0;36m\ sets the color to cyan
+# sets the color to cyan
 c_cyan='\[\e[1;36m\]'
-# \e[0;36m\ sets the color to yellow
+# sets the color to yellow
 c_yellow='\[\e[0;93m\]'
-# \e[0;32m\ sets the color to green
+# sets the color to green
 c_green='\[\e[1;32m\]'
-# \e[0;31m\ sets the color to red
+# sets the color to red
 c_red='\[\e[1;31m\]'
 co_red='\e[0;31m'
 
@@ -123,7 +123,7 @@ cd() { builtin cd "$@"; ll; }
 pushd() { builtin pushd "$@"; ll; }
 mkcd() { mkdir -p "$1" && cd "$1"; }
 trash() { command mv "$@" ~/.local/share/Trash/files/ ; }
-te() { touch "$1"; subl "$1"; }
+te() { touch "$1"; e "$1"; }
 # requires espeak
 say() { echo "$1" | espeak; }
 e() {
