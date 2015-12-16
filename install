@@ -20,6 +20,7 @@ cp -R bin/ ~/opt/
 cp .bashrc ~/
 cp .bash_aliases ~/
 cp .gitconfig ~/
+cp .gitignore_global ~/
 cp .inputrc ~/
 cp .profile ~/
 cp -R .conky/ ~/

@@ -126,6 +126,9 @@ trash() { command mv "$@" ~/.local/share/Trash/files/ ; }
 te() { touch "$1"; subl "$1"; }
 # requires espeak
 say() { echo "$1" | espeak; }
+e() {
+  subl "$1" >/dev/null 2>&1 &
+}
 
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
