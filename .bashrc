@@ -67,7 +67,7 @@ format_pwd() {
   short_wd=${wd/\/home\/andy/\~}
   first_char=$(echo $short_wd | cut -c 1-1)
   if [[ $first_char != '~' ]]; then
-    short_wd="${c_reset}\e[0;0;40m💀 ${c_reset}${c_purple}${short_wd}"
+    short_wd="${c_reset}\e[0;0;40m💀 ${c_purple}${short_wd}${c_reset}"
   fi
   echo -e "${c_purple}${short_wd}"
 }
