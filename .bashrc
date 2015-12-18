@@ -21,6 +21,7 @@ echo -e "\__________/\__________/ "
 echo -e "\e[0m"
 echo "Welcome, $USER! It's $(date)."
 echo "You're logged in at $(hostname)."
+echo "You're using $OSTYPE"
 echo; echo
 
 # Load git completions
@@ -84,7 +85,7 @@ git_prompt() {
   if [[ $(git diff) ]]; then
     git_icon="${c_red}✗"
   elif [[ $(git status --short) ]]; then
-    git_icon="${c_yellow}✎"
+    git_icon="${c_yellow}📤"
   else
     git_icon="${c_green}✓"
   fi
