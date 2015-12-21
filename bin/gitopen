@@ -1,5 +1,0 @@
-#!/usr/bin/ruby
-
-remotes = `git remote -v`
-url = remotes.match(/origin\s*(https:\/\/github\.com\/(?:\S+)).git/)[1]
-exec "google-chrome #{url}"
