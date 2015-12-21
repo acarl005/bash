@@ -20,8 +20,7 @@ echo -e "/__________\/__________\ "
 echo -e "\__________/\__________/ "
 echo -e "\e[0m"
 echo "Welcome, $USER! It's $(date)."
-echo "You're logged in at $(hostname)."
-echo "You're using $OSTYPE"
+echo "You're logged in at $(hostname), using $OSTYPE."
 echo; echo
 
 # Load git completions
