@@ -6,8 +6,8 @@
 			"selector": "text, source, meta, string, punctuation, constant"
 		}
 	],
-	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
-	"font_size": 19,
+	"color_scheme": "Packages/Theme - Brogrammer/brogrammer.tmTheme",
+	"font_size": 18,
 	"hot_exit": false,
 	"ignored_packages":
 	[
