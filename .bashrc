@@ -55,10 +55,26 @@ c_green='\[\e[1;32m\]'
 c_red='\[\e[1;31m\]'
 co_red='\e[0;31m'
 
-gems="${c_red}💎${c_green}💎${c_cyan}💎${c_purple}💎 ${c_reset}"
+gems="${c_red}💎${c_green}💎${c_cyan}💎${c_purple}💎"
+christmas="${c_red}🎁 ${c_green}🎁"
+halloween="\[\e[0;31;40m\]🎃 \[\e[0;0;40m\]👻"
+new_years_eve="${c_cyan}🎉 ${c_yellow}🎊"
+cinco_de_mayo="${c_yellow}🍺${c_green}🍸${c_red}🍷"
+st_patricks_day="${c_green}🍀 ${c_yellow}🍺"
+birthday="${c_green}🎁 ${c_cyan}🎂 ${c_red}🎈"
+valentines="${c_reset}💙${c_red}💙${c_purple}💙"
+
+prompt="$gems"
+[[ $(date +%e) = 14 && $(date +%m) = 2  ]] && prompt="$valentines"
+[[ $(date +%e) = 17 && $(date +%m) = 3  ]] && prompt="$st_patricks_day"
+[[ $(date +%e) = 5  && $(date +%m) = 5  ]] && prompt="$cinco_de_mayo"
+[[ $(date +%e) = 22 && $(date +%m) = 8  ]] && prompt="$birthday"
+[[ $(date +%e) = 31 && $(date +%m) = 10 ]] && prompt="$halloween"
+[[ $(date +%e) = 25 && $(date +%m) = 12 ]] && prompt="$christmas"
+[[ $(date +%e) = 31 && $(date +%m) = 12 ]] && prompt="$new_years_eve"
 
 # PS1 is the variable for the prompt you see everytime you hit enter
-PROMPT_COMMAND='PS1="$(format_pwd)$(git_prompt) ${gems} "; \
+PROMPT_COMMAND='PS1="$(format_pwd)$(git_prompt) ${prompt} ${c_reset} "; \
                 echo -ne "\033]2;${PWD/#${HOME}/\~}\007" '
 export PS2='... '
 
