@@ -1,0 +1,1 @@
+Pry.config.prompt_name = "\e[0;31m💎 \e[0m"

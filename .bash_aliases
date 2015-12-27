@@ -16,6 +16,7 @@ alias serv="python -m SimpleHTTPServer"
 alias conk="conky -d -c ~/.conky/conkyrc_seamod"
 alias chrome="google-chrome"
 alias fresh="source ~/.bashrc"
+alias irb="pry"
 
 
 alias desk='pushd ~/Desktop'

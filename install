@@ -22,6 +22,7 @@ set -e #exit on any failure
   cp .gitconfig ~/
   cp .gitignore_global ~/
   cp .inputrc ~/
+  cp .pryrc ~/
   cp .profile ~/
   cp -R .conky/ ~/
 

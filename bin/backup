@@ -25,6 +25,7 @@ cp -R ~/opt/bin ./
 cp ~/.gitconfig ./
 cp ~/.gitignore_global ./
 cp ~/.inputrc ./
+cp ~/.pryrc ./
 cp ~/.profile ./
 cp -R ~/.conky ./
 git add .
