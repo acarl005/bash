@@ -73,7 +73,8 @@ prompt="$gems"
 [[ $(date +%e) = 25 && $(date +%m) = 12 ]] && prompt="$christmas"
 [[ $(date +%e) = 31 && $(date +%m) = 12 ]] && prompt="$new_years_eve"
 
-# PS1 is the variable for the prompt you see everytime you hit enter
+# PROMPT_COMMAND is a variable whose value is some code that gets evaluated each time the prompt awaits input
+# PS1 is the variable for the prompt you see when terminal is awaiting input
 PROMPT_COMMAND='PS1="$(format_pwd)$(git_prompt) ${prompt} ${c_reset} "; \
                 echo -ne "\033]2;${PWD/#${HOME}/\~}\007" '
 export PS2='... '
@@ -148,9 +149,7 @@ e() {
 
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
-hl() {
-  pbpaste | highlight -O xterm256 -S "$1" -l | pbcopy;
-}
+
 
 #full recursive directory listing
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
