@@ -55,7 +55,10 @@ alias day="redshift -O 6500"
 alias night="redshift -O 3700"
 alias twilight="redshift -O 5000"
 
-alias mirror="xrandr --output HDMI1 --auto --same-as eDP1; xrandr --output HDMI1 --mode 1920x1080"
+#requires xclip
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+
 
 #common typos
 alias gits="git s"
