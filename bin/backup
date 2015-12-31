@@ -28,6 +28,7 @@ cp ~/.inputrc ./
 cp ~/.pryrc ./
 cp ~/.psqlrc ./
 cp ~/.mongorc.js ./
+cp ~/.pythonrc.py ./
 cp ~/.profile ./
 cp -R ~/.conky ./
 git add .
