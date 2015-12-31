@@ -5,6 +5,8 @@
 
 # include custom scripts
 PATH=$PATH:~/opt/bin
+
+# Greet me with a triforce and other stuff
 echo -e "\e[1;93m           /\            "
 echo -e "          /  \           "
 echo -e "         /    \          "

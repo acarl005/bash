@@ -26,6 +26,8 @@ cp ~/.gitconfig ./
 cp ~/.gitignore_global ./
 cp ~/.inputrc ./
 cp ~/.pryrc ./
+cp ~/.psqlrc ./
+cp ~/.mongorc.js ./
 cp ~/.profile ./
 cp -R ~/.conky ./
 git add .
