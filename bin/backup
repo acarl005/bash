@@ -30,7 +30,9 @@ cp ~/.psqlrc ./
 cp ~/.mongorc.js ./
 cp ~/.pythonrc.py ./
 cp ~/.profile ./
+cp ~/.jshintrc ./
 cp -R ~/.conky ./
+cp -R ~/.atom ./
 git add .
 git commit -m "$1"
 git push origin master

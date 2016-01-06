@@ -1,0 +1,1 @@
+{"context-menu":{".overlayer":[{"command":"atom-erb:erb"}]},"menu":[{"label":"Packages","submenu":[{"label":"ERB","submenu":[{"label":"Insert ERB Tag","command":"atom-erb:erb"}]}]}]}

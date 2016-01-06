@@ -148,6 +148,9 @@ say() { echo "$1" | espeak; }
 e() {
   subl "$1" >/dev/null 2>&1 &
 }
+o() {
+  xdg-open "$1" >/dev/null 2>&1 &
+}
 
 
 #full recursive directory listing

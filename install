@@ -27,6 +27,7 @@ set -e #exit on any failure
   cp .mongorc.js ~/
   cp .pythonrc.py ~/
   cp .profile ~/
+  cp .jshintrc ~/
   cp -R .conky/ ~/
-
+  cp -R .atom/ ~/
 }

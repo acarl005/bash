@@ -5,7 +5,6 @@ alias mkdir='mkdir -pv'
 alias ll='ls -FGlAhp'
 alias less='less -FSRXc'
 alias ps='ps -ef'
-alias o='xdg-open'
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."

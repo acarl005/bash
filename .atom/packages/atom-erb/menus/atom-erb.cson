@@ -1,0 +1,15 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  '.overlayer': [{ 'Insert ERB Tag', command: 'atom-erb:erb'}]
+
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'ERB'
+      'submenu': [
+        { 'label': 'Insert ERB Tag', 'command': 'atom-erb:erb' }
+      ]
+    ]
+  }
+]

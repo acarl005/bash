@@ -1,0 +1,37 @@
+{
+  "name": "atom-erb",
+  "main": "./lib/atom-erb",
+  "version": "0.2.0",
+  "description": "A short description of your package",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aergonaut/atom-erb.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">=0.174.0 <2.0.0"
+  },
+  "readme": "# Atom ERB\n\n[![Build Status](https://travis-ci.org/aergonaut/atom-erb.svg)](https://travis-ci.org/aergonaut/atom-erb)\n\nProvides basic ERB support to Atom.\n\n## Installation\n\nInstall with `apm` or from the Preferences screen.\n\n## Usage\n\nPress `cmd-shift-.` to insert `<%= %>` around the current cursor.\n\n## TODO\n\n- Toggle between different ERB tags (`<% %>`, `<%- %>`, etc.).\n- Insert tags around selection.\n- Better specs.\n- Menu items.\n- Context menu items.\n\n## License\n\nThe MIT license\n\nCopyright (c) 2014 Chris Fung\n\nPermission is hereby granted, free of charge, to any person obtaining\na copy of this software and associated documentation files (the\n\"Software\"), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\nNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE\nLIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION\nWITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/aergonaut/atom-erb/issues"
+  },
+  "homepage": "https://github.com/aergonaut/atom-erb#readme",
+  "_id": "atom-erb@0.2.0",
+  "_shasum": "76343d723d4346f09d82370a6e02e1c237efbf8b",
+  "_resolved": "file:../d-11606-3835-hcu771/package.tgz",
+  "_from": "../d-11606-3835-hcu771/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".coffee": [
+        "lib/atom-erb.coffee"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

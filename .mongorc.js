@@ -1,4 +1,4 @@
-prompt = "🐺 [" + db + "] > ";
+prompt = function() { "🐺 [" + db + "] > " };
 var exit = quit;
 
 function newUser(username, password) {
