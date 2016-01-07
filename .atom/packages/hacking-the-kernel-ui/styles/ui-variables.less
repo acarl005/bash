@@ -1,0 +1,94 @@
+// Colors
+
+@text-color: #0c0;
+@text-color-subtle: #060;
+@text-color-highlight: #3f3;
+@text-color-selected: @text-color-highlight;
+
+@text-color-info: #94ff95;
+@text-color-success: #0F6;
+@text-color-warning: #AF3;
+@text-color-error: #F63;
+
+@text-color-ignored: @text-color-subtle;
+@text-color-added: @text-color-success;
+@text-color-renamed: @text-color-info;
+@text-color-modified: @text-color-warning;
+@text-color-removed: @text-color-error;
+
+@background-color-info: #000;
+@background-color-success: #030;
+@background-color-warning: #000;
+@background-color-error: #c00;
+@background-color-highlight: rgba(255, 255, 255, 0.07);
+@background-color-selected: #030;
+
+@app-background-color: #000;
+
+@base-background-color: lighten(@tool-panel-background-color, 5%);
+@base-border-color: rgba(10, 40, 20, 1);
+
+@pane-item-background-color: @base-background-color;
+@pane-item-border-color: rgba(0, 0, 0, 0.5);
+
+@input-background-color: #000;
+@input-border-color: @base-border-color;
+
+@tool-panel-background-color: #000;
+@tool-panel-border-color: @base-border-color;
+
+@inset-panel-background-color: #020;
+@inset-panel-border-color: @base-border-color;
+
+@panel-heading-background-color: #000;
+@panel-heading-border-color: fadein(@base-border-color, 10%);
+
+@overlay-background-color: #000;
+@overlay-border-color: @background-color-highlight;
+
+@button-background-color: #002200;
+@button-background-color-hover: lighten(@button-background-color, 5%);
+@button-background-color-selected: #001100;
+@button-border-color: @base-border-color;
+
+@tab-bar-background-color: #000;
+@tab-bar-border-color: darken(@tab-background-color-active, 10%);
+@tab-background-color: #000;
+@tab-background-color-active: #000500;
+@tab-border-color: #005500;
+
+@tree-view-background-color: #000;
+@tree-view-border-color: @tool-panel-border-color;
+
+@scrollbar-background-color: #020; // Needs to be opaque -> atom/atom/issues/4578
+@scrollbar-color: rgba(92, 92, 92, 0.5);
+
+@ui-site-color-1: @background-color-success; // green
+@ui-site-color-2: @background-color-info; // blue
+@ui-site-color-3: @background-color-warning; // orange
+@ui-site-color-4: #db2ff4; // purple
+@ui-site-color-5: #f5e11d; // yellow
+
+@scanline-background-dark: repeating-linear-gradient(0deg, #000 1px, #000 1px, lighten(@background-color-selected,10%) 3px, lighten(@background-color-selected,10%) 1px);
+@scanline-background-darkest: repeating-linear-gradient(0deg, #000 1px, #000 1px, @background-color-selected 3px, @background-color-selected 1px);
+@scanline-background-light: repeating-linear-gradient(0deg, #000 1px, #000 1px, lighten(@background-color-selected,20%) 3px, lighten(@background-color-selected,20%) 1px);
+
+// Sizes
+
+@font-size: 13px;
+@input-font-size: 13px;
+
+@disclosure-arrow-size: 12px;
+
+@component-padding: 18px;
+@component-icon-padding: 4px;
+@component-icon-size: 8px;
+@component-line-height: 20px;
+@component-border-radius: 2px;
+
+@tab-height: 26px;
+
+
+// Other
+
+@font-family: 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, sans-serif;

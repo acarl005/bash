@@ -119,6 +119,7 @@ export GREP_OPTIONS='--color=always'
 
 # Set sublime as the default editor
 [[ $(which subl) ]] && export EDITOR="subl --wait"
+[[ $(which atom) ]] && export EDITOR=atom
 
 
 # enable color support of ls and also add handy aliases
@@ -145,9 +146,6 @@ trash() { command mv "$@" ~/.local/share/Trash/files/ ; }
 te() { touch "$1"; e "$1"; }
 # requires espeak
 say() { echo "$1" | espeak; }
-e() {
-  subl "$1" >/dev/null 2>&1 &
-}
 o() {
   xdg-open "$1" >/dev/null 2>&1 &
 }

@@ -4,9 +4,14 @@
   welcome:
     showOnStartup: false
   editor:
-    fontSize: 19
+    fontSize: 24
     invisibles: {}
     tabType: "soft"
-  core: {}
+    preferredLineLength: 100
+  core:
+    themes: [
+      "ksx-matrix-ui"
+      "apathy-theme"
+    ]
   autosave:
     enabled: true

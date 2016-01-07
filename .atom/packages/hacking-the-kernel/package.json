@@ -1,0 +1,41 @@
+{
+  "name": "hacking-the-kernel",
+  "theme": "syntax",
+  "version": "1.4.0",
+  "description": "A dark syntax theme for your late-night coding sessions...",
+  "keywords": [
+    "syntax",
+    "theme",
+    "dark",
+    "green",
+    "matrix"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heisian/hacking-the-kernel.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "readme": "# Hacking the Kernel Atom Syntax Theme\n\nA black & green theme for your late-night coding sessions...\n\nSatiate your old-school CRT nostalgia!\n\nGet the matching UI theme [here](https://atom.io/themes/hacking-the-kernel-ui).\n\n## Preview\n![A screenshot of your theme](https://raw.githubusercontent.com/heisian/hacking-the-kernel/master/screenshot.jpg)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/heisian/hacking-the-kernel/issues"
+  },
+  "homepage": "https://github.com/heisian/hacking-the-kernel#readme",
+  "_id": "hacking-the-kernel@1.4.0",
+  "_shasum": "1e1307b88830835678282f2bb529433eddca9f07",
+  "_resolved": "file:../d-11606-16570-r4c5n0/package.tgz",
+  "_from": "../d-11606-16570-r4c5n0/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

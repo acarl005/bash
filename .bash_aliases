@@ -16,7 +16,7 @@ alias conk="conky -d -c ~/.conky/conkyrc_seamod"
 alias chrome="google-chrome"
 alias fresh="source ~/.bashrc"
 alias irb="pry"
-
+alias e=atom
 
 alias desk='pushd ~/Desktop'
 export desk='~/Desktop'
