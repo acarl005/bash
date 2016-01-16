@@ -4,14 +4,41 @@
   welcome:
     showOnStartup: false
   editor:
-    fontSize: 24
-    invisibles: {}
+    fontSize: 27
+    invisibles:
+      cr: " "
+      eol: " "
     tabType: "soft"
     preferredLineLength: 100
+    showInvisibles: true
   core:
     themes: [
-      "ksx-matrix-ui"
+      "one-dark-ui"
       "apathy-theme"
+    ]
+    ignoredNames: [
+      ".git"
+      "*.pyc"
     ]
   autosave:
     enabled: true
+  "markdown-preview":
+    useGitHubStyle: true
+  emmet: {}
+  jshint:
+    supportLintingJsx: true
+  "tree-view":
+    hideIgnoredNames: true
+".python.regexp.source":
+  editor:
+    preferredLineLength: 100
+".python.text.traceback":
+  editor:
+    preferredLineLength: 100
+".console.python.text":
+  editor:
+    preferredLineLength: 100
+".python.source":
+  editor:
+    preferredLineLength: 100
+    tabLength: 2

@@ -10,3 +10,21 @@
     background-color: ;
   }
 }
+
+.editor, atom-text-editor::shadow {
+  .bracket-matcher {
+    position: absolute;
+    border: 1px solid rgba(0, 204, 255, 0.7);
+    background-color: rgba(0, 204, 255, 0.2);
+    z-index: 100;
+  }
+}
+
+atom-text-editor, atom-text-editor::shadow {
+  // Box
+  .highlights .highlight-selected .region {
+    border-color: #ddd;
+    background-color: rgba(150, 204, 255, 0.1);
+  }
+
+}

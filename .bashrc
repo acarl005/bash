@@ -1,6 +1,6 @@
 # fix bug with atheros network card
 # http://askubuntu.com/questions/678145/my-wifi-qualcomm-atheros-device-168c0041-rev-20-doesnt-show-up-and-work-in
-# fix gulp watch error 
+# fix gulp watch error
 # echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
 # include custom scripts
@@ -77,7 +77,7 @@ prompt="$gems"
 
 # PROMPT_COMMAND is a variable whose value is some code that gets evaluated each time the prompt awaits input
 # PS1 is the variable for the prompt you see when terminal is awaiting input
-PROMPT_COMMAND='PS1="$(format_pwd)$(git_prompt) ${prompt} ${c_reset} "; \
+PROMPT_COMMAND='PS1="$(venv)$(format_pwd)$(git_prompt) ${prompt} ${c_reset} "; \
                 echo -ne "\033]2;${PWD/#${HOME}/\~}\007" '
 export PS2='... '
 
@@ -89,6 +89,12 @@ format_pwd() {
     short_wd="${c_reset}\e[0;0;40m💀 ${c_purple}${short_wd}${c_reset}"
   fi
   echo -e "${c_purple}${short_wd}"
+}
+
+venv() {
+  if [[ $VIRTUAL_ENV ]]; then
+    echo -e "\[\e[0;32m\]🐍 "
+  fi
 }
 
 
@@ -149,6 +155,12 @@ say() { echo "$1" | espeak; }
 o() {
   xdg-open "$1" >/dev/null 2>&1 &
 }
+keys() {
+  openssl genrsa -out key.pem &&
+  openssl req -new -key key.pem -out csr.pem &&
+  openssl x509 -req -days 9999 -in csr.pem -signkey key.pem -out cert.pem &&
+  rm csr.pem
+}
 
 
 #full recursive directory listing
@@ -200,3 +212,6 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
 
 
 export PYTHONSTARTUP=$HOME/.pythonrc.py
+
+# added by travis gem
+[ -f /home/andy/.travis/travis.sh ] && source /home/andy/.travis/travis.sh

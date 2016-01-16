@@ -67,8 +67,8 @@
   "homepage": "https://github.com/sindresorhus/atom-jshint#readme",
   "_id": "jshint@1.8.3",
   "_shasum": "7cdf6bf5fa14aaa94f3d432329a0773c092bbd89",
-  "_resolved": "file:../d-11606-3873-ejb67d/package.tgz",
-  "_from": "../d-11606-3873-ejb67d/package.tgz",
+  "_resolved": "file:../d-11606-5409-29px96/package.tgz",
+  "_from": "../d-11606-5409-29px96/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -419,12 +419,12 @@
       },
       {
         "name": "recast",
-        "version": "0.10.39",
+        "version": "0.10.41",
         "path": "node_modules/jshint-jsx/node_modules/react-tools/node_modules/commoner/node_modules/recast/main.js"
       },
       {
         "name": "ast-types",
-        "version": "0.8.12",
+        "version": "0.8.15",
         "path": "node_modules/jshint-jsx/node_modules/react-tools/node_modules/commoner/node_modules/recast/node_modules/ast-types/main.js"
       },
       {
@@ -3083,7 +3083,7 @@
           "esprima-fb": "~15001.1001.0-dev-harmony-fb",
           "source-map": "~0.5.0",
           "private": "~0.1.5",
-          "ast-types": "0.8.12"
+          "ast-types": "0.8.15"
         }
       },
       {
