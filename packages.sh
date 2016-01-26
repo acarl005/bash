@@ -4,5 +4,6 @@ sudo add-apt-repository ppa:webupd8team/sublime-text-2 &&
 sudo add-apt-repository ppa:noobslab/themes &&
 sudo apt-add-repository -y ppa:rael-gc/scudcloud &&
 sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder &&
+sudo add-apt-repository ppa:webupd8team/atom &&
 sudo apt-get update &&
-sudo apt-get install sublime-text dorian-theme scudcloud simplescreenrecorder
+sudo apt-get install sublime-text dorian-theme scudcloud simplescreenrecorder atom
