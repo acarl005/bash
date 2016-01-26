@@ -5,4 +5,4 @@ sudo add-apt-repository ppa:noobslab/themes &&
 sudo apt-add-repository -y ppa:rael-gc/scudcloud &&
 sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder &&
 sudo apt-get update &&
-sudo apt-get install sublime-text dorian-theme-gtk3 scudcloud simplescreenrecorder
+sudo apt-get install sublime-text dorian-theme scudcloud simplescreenrecorder
