@@ -7,13 +7,11 @@
   'alt-backspace': 'editor:delete-to-beginning-of-line'
 
 'atom-text-editor':
-  'ctrl-shift-Q': 'markdown-preview:toggle'
-
-'.editor:not(.mini)':
-  'ctrl-shift-M': 'markdown-preview:toggle'
+  'ctrl-shift-M': 'bracket-matcher:select-inside-brackets'
 
 'atom-text-editor:not([mini])':
   'ctrl-shift-M': 'unset!'
+  'ctrl-shift-M': 'bracket-matcher:select-inside-brackets'
 
 'atom-workspace':
   'alt-left': 'unset!'

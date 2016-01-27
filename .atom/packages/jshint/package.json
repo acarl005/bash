@@ -67,8 +67,8 @@
   "homepage": "https://github.com/sindresorhus/atom-jshint#readme",
   "_id": "jshint@1.8.3",
   "_shasum": "7cdf6bf5fa14aaa94f3d432329a0773c092bbd89",
-  "_resolved": "file:../d-11606-5409-29px96/package.tgz",
-  "_from": "../d-11606-5409-29px96/package.tgz",
+  "_resolved": "file:../d-116026-4209-6tea9a/package.tgz",
+  "_from": "../d-116026-4209-6tea9a/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -144,7 +144,7 @@
       },
       {
         "name": "jshint",
-        "version": "2.8.0",
+        "version": "2.9.1",
         "path": "node_modules/jshint/src/jshint.js"
       },
       {
@@ -419,7 +419,7 @@
       },
       {
         "name": "recast",
-        "version": "0.10.41",
+        "version": "0.10.43",
         "path": "node_modules/jshint-jsx/node_modules/react-tools/node_modules/commoner/node_modules/recast/main.js"
       },
       {
@@ -1465,6 +1465,7 @@
         "node_modules/jshint/src/reporters/jslint_xml.js",
         "node_modules/jshint/src/reporters/non_error.js",
         "node_modules/jshint/src/reporters/unix.js",
+        "node_modules/jshint/src/scope-manager.js",
         "node_modules/jshint/src/state.js",
         "node_modules/jshint/src/style.js",
         "node_modules/jshint/src/vars.js",

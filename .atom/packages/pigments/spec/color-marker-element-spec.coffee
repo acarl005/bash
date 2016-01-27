@@ -2,6 +2,7 @@ path = require 'path'
 Color = require '../lib/color'
 ColorMarker = require '../lib/color-marker'
 ColorMarkerElement = require '../lib/color-marker-element'
+{click} = require './helpers/events'
 
 stylesheetPath = path.resolve __dirname, '..', 'styles', 'pigments.less'
 stylesheet = atom.themes.loadStylesheet(stylesheetPath)
@@ -40,7 +41,11 @@ describe 'ColorMarkerElement', ->
       text
       colorBuffer: {
         editor
+        project:
+          colorPickerAPI:
+            open: jasmine.createSpy('color-picker.open')
         ignoredScopes: []
+        getMarkerLayer: -> editor
       }
     })
 
@@ -59,6 +64,22 @@ describe 'ColorMarkerElement', ->
 
     expect(colorMarkerElement.release).toHaveBeenCalled()
     expect(eventSpy).toHaveBeenCalled()
+
+  describe 'clicking on the decoration', ->
+    beforeEach ->
+      colorMarkerElement = new ColorMarkerElement
+      colorMarkerElement.setContainer
+        requestMarkerUpdate: ([marker]) -> marker.render()
+
+      colorMarkerElement.setModel(colorMarker)
+
+      click(colorMarkerElement)
+
+    it 'selects the text in the editor', ->
+      expect(editor.getSelectedScreenRange()).toEqual([[1,9],[4,1]])
+
+    it 'opens the color picker', ->
+      expect(colorMarker.colorBuffer.project.colorPickerAPI.open).toHaveBeenCalled()
 
   ##    ########     ###     ######  ##    ##
   ##    ##     ##   ## ##   ##    ## ##   ##
@@ -216,7 +237,7 @@ describe 'ColorMarkerElement', ->
   ##    ########   #######     ##
 
   describe 'when the render mode is set to dot', ->
-    [regions, markers, markersElements] = []
+    [regions, markers, markersElements, markerElement] = []
 
     createMarker = (range, color, text) ->
       marker = editor.markBufferRange(range, {
@@ -232,7 +253,11 @@ describe 'ColorMarkerElement', ->
         text
         colorBuffer: {
           editor
+          project:
+            colorPickerAPI:
+              open: jasmine.createSpy('color-picker.open')
           ignoredScopes: []
+          getMarkerLayer: -> editor
         }
       })
 
@@ -294,7 +319,11 @@ describe 'ColorMarkerElement', ->
         text
         colorBuffer: {
           editor
+          project:
+            colorPickerAPI:
+              open: jasmine.createSpy('color-picker.open')
           ignoredScopes: []
+          getMarkerLayer: -> editor
         }
       })
 
