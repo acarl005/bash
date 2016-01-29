@@ -1,7 +1,7 @@
 {
   "name": "script",
   "main": "./lib/script",
-  "version": "3.4.0",
+  "version": "3.4.1",
   "private": false,
   "description": "Run code in Atom!",
   "author": {
@@ -349,10 +349,10 @@
     "url": "https://github.com/rgbkrk/atom-script/issues"
   },
   "homepage": "https://github.com/rgbkrk/atom-script#readme",
-  "_id": "script@3.4.0",
-  "_shasum": "5fd41290508f845dae2b2c129836be7e310367c0",
-  "_resolved": "file:../d-116012-11388-18syn55/package.tgz",
-  "_from": "../d-116012-11388-18syn55/package.tgz",
+  "_id": "script@3.4.1",
+  "_shasum": "7a916b23676b5881bd1191bf29048dea59b42591",
+  "_resolved": "file:../d-116027-10536-fa95iq/package.tgz",
+  "_from": "../d-116027-10536-fa95iq/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

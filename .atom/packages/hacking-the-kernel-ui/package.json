@@ -1,7 +1,7 @@
 {
   "name": "hacking-the-kernel-ui",
   "theme": "ui",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A dark UI theme for your late-night coding sessions...",
   "keywords": [
     "ui",
@@ -24,10 +24,10 @@
     "url": "https://github.com/heisian/hacking-the-kernel-ui/issues"
   },
   "homepage": "https://github.com/heisian/hacking-the-kernel-ui#readme",
-  "_id": "hacking-the-kernel-ui@1.2.0",
-  "_shasum": "722d6e3a04ef4b83cfec7a364e11b25adef52a66",
-  "_resolved": "file:../d-11606-16382-1kjar0b/package.tgz",
-  "_from": "../d-11606-16382-1kjar0b/package.tgz",
+  "_id": "hacking-the-kernel-ui@1.2.1",
+  "_shasum": "3ea70751fd912be06563afe4759cde81ca103ca2",
+  "_resolved": "file:../d-116027-10536-1gxypz3/package.tgz",
+  "_from": "../d-116027-10536-1gxypz3/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [],

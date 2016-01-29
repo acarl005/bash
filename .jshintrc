@@ -2,5 +2,6 @@
     "expr": true,
     "esnext": true,
     "unused": true,
-    "multistr": true
+    "multistr": true,
+    "evil": true
 }
