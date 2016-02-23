@@ -5,6 +5,7 @@
     disabledPackages: [
       "markdown-preview"
     ]
+    excludeVcsIgnoredPaths: false
     ignoredNames: [
       ".git"
       "*.pyc"
@@ -14,7 +15,7 @@
       "apathy-theme"
     ]
   editor:
-    fontSize: 20
+    fontSize: 21
     invisibles:
       cr: " "
       eol: " "

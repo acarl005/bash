@@ -40,8 +40,6 @@ alias ns="npm start"
 alias nsd="npm run start-dev"
 alias nt="npm test"
 alias nr="npm run"
-alias gulp="gulp 2>/dev/null || ./node_modules/.bin/gulp"
-alias sq="sequelize 2>/dev/null || ./node_modules/.bin/sequelize"
 
 alias mon="~/Documents/projects/mongoose-model-cli/bin/mongoose-model-cli"
 
@@ -62,5 +60,3 @@ alias pbpaste='xclip -selection clipboard -o'
 #common typos
 alias gits="git s"
 alias pod="popd"
-
-
