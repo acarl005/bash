@@ -30,7 +30,7 @@ cp ~/.pythonrc.py ./
 cp ~/.profile ./
 cp ~/.jshintrc ./
 cp -R ~/.conky ./
-cp ~/.atom/* ./
+cp ~/.atom/* ./.atom
 git add .
 git commit -m "$1"
 git push origin master
