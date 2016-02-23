@@ -1,1 +1,0 @@
-{"context-menu":{"atom-text-editor":[{"label":"Open in Browser","command":"open-in-browser:open"}],".tree-view .file":[{"label":"Open in Browser","command":"open-in-browser:open-tree-view"}]},"menu":[{"label":"Packages","submenu":[{"label":"Open in Browser","submenu":[{"label":"Open In Browser","command":"open-in-browser:open"}]}]}]}

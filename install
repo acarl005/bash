@@ -29,5 +29,4 @@ set -e #exit on any failure
   cp .profile ~/
   cp .jshintrc ~/
   cp -R .conky/ ~/
-  cp -R .atom/ ~/
 }
