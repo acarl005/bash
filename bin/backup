@@ -1,5 +1,3 @@
-set -e #exit on any failure
-
 if [[ ! "$1" ]]; then
   echo 'Enter a commit message.'
   exit 1
@@ -32,7 +30,7 @@ cp ~/.pythonrc.py ./
 cp ~/.profile ./
 cp ~/.jshintrc ./
 cp -R ~/.conky ./
-cp -R ~/.atom ./
+cp ~/.atom/* ./
 git add .
 git commit -m "$1"
 git push origin master
