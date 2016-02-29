@@ -1,0 +1,4 @@
+#!/bin/bash
+
+node_script="console.log(JSON.parse(\`$1\`)['$2'] || '');"
+echo $(node -e "$node_script")
