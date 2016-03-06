@@ -2,9 +2,6 @@
   autosave:
     enabled: true
   core:
-    disabledPackages: [
-      "markdown-preview"
-    ]
     excludeVcsIgnoredPaths: false
     ignoredNames: [
       ".git"
@@ -15,7 +12,7 @@
       "apathy-theme"
     ]
   editor:
-    fontSize: 25
+    fontSize: 21
     invisibles:
       cr: " "
       eol: " "
