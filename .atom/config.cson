@@ -2,6 +2,9 @@
   autosave:
     enabled: true
   core:
+    disabledPackages: [
+      "vim-mode-plus"
+    ]
     excludeVcsIgnoredPaths: false
     ignoredNames: [
       ".git"
@@ -12,7 +15,7 @@
       "apathy-theme"
     ]
   editor:
-    fontSize: 21
+    fontSize: 18
     invisibles:
       cr: " "
       eol: " "
@@ -39,7 +42,7 @@
 ".python.source":
   editor:
     preferredLineLength: 100
-    tabLength: 2
+    tabLength: 4
 ".python.text.traceback":
   editor:
     preferredLineLength: 100

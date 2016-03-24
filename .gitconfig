@@ -7,6 +7,7 @@
 [color]
   status = auto
   diff = auto
+  ui = true
 
 [color "status"]
   untracked = cyan
@@ -38,6 +39,8 @@
     --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' \
     --abbrev-commit \
     --date=relative
+
+  logo = log --oneline
 
 
   # Edit the last commit

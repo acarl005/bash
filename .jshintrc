@@ -3,5 +3,6 @@
     "esnext": true,
     "unused": true,
     "multistr": true,
-    "evil": true
+    "evil": true,
+    "node": true
 }

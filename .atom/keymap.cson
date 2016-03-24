@@ -9,6 +9,7 @@
 'atom-text-editor':
   'ctrl-shift-M': 'bracket-matcher:select-inside-brackets'
   'alt-shift-M': 'markdown-preview:toggle'
+  'alt-shift-G': 'open-on-github:file'
 
 'atom-text-editor:not([mini])':
   'ctrl-shift-M': 'unset!'
