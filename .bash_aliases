@@ -42,8 +42,9 @@ alias nt="npm test"
 alias nr="npm run"
 
 alias mon="~/Documents/projects/mongoose-model-cli/bin/mongoose-model-cli"
-
 alias casper="node_modules/.bin/casperjs --ssl-protocol=any --ignore-ssl-errors=yes test"
+alias dynamo='java -Djava.library.path=~/dev/dbs/dynamo/DynamoDBLocal_lib \
+-jar ~/dev/dbs/dynamo/DynamoDBLocal.jar -sharedDb -dbPath ~/dev/dbs/dynamo'
 
 alias g="git"
 

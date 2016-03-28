@@ -4,6 +4,7 @@
   core:
     disabledPackages: [
       "vim-mode-plus"
+      "jshint"
     ]
     excludeVcsIgnoredPaths: false
     ignoredNames: [
@@ -15,7 +16,7 @@
       "apathy-theme"
     ]
   editor:
-    fontSize: 18
+    fontSize: 25
     invisibles:
       cr: " "
       eol: " "
