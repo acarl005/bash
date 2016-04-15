@@ -16,7 +16,7 @@
       "apathy-theme"
     ]
   editor:
-    fontSize: 23
+    fontSize: 21
     invisibles:
       cr: " "
       eol: " "

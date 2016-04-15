@@ -6,6 +6,7 @@
 # include custom scripts
 PATH=$PATH:~/opt/bin
 
+
 # Greet me with a triforce and other stuff
 echo -e "\e[1;93m           /\            "
 echo -e "          /  \           "
@@ -213,8 +214,9 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
 
 export PYTHONSTARTUP=$HOME/.pythonrc.py
 
-# added by travis gem
-[ -f /home/andy/.travis/travis.sh ] && source /home/andy/.travis/travis.sh
+# set by login shell but not in normal shell. requried for GNU octave
+export DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-6ZF0AznAx2
+
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
