@@ -2,6 +2,7 @@
 # http://askubuntu.com/questions/678145/my-wifi-qualcomm-atheros-device-168c0041-rev-20-doesnt-show-up-and-work-in
 # fix gulp watch error
 # echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+# ubuntu dark aubergine color: #2C001E rgb(45, 0, 30)
 
 # include custom scripts
 PATH=$PATH:~/opt/bin
@@ -215,7 +216,7 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
 export PYTHONSTARTUP=$HOME/.pythonrc.py
 
 # set by login shell but not in normal shell. requried for GNU octave
-export DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-6ZF0AznAx2
+# export DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-6ZF0AznAx2
 
 
 ### Added by the Heroku Toolbelt
