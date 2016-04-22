@@ -2,8 +2,8 @@
 \pset null '¤'
 
 -- Customize prompts
-\set PROMPT1 '%[%033[0;37m%]🐘 %[%033[1;36m%][%/] %[%033[0m%]> '
-\set PROMPT2 '... '
+\set PROMPT1 '%[%033[0;37m%]🐘 %[%033[1;36m%][%/] %[%033[0m%]%R> '
+\set PROMPT2 '... %R> '
 
 -- Show how long each query takes to execute
 \timing

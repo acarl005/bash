@@ -223,3 +223,6 @@ export PYTHONSTARTUP=$HOME/.pythonrc.py
 export PATH="/usr/local/heroku/bin:$PATH"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# added by travis gem
+[ -f /home/andy/.travis/travis.sh ] && source /home/andy/.travis/travis.sh
