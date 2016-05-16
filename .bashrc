@@ -157,12 +157,12 @@ say() { echo "$1" | espeak; }
 o() {
   xdg-open "$1" >/dev/null 2>&1 &
 }
-keys() {
-  openssl genrsa -out key.pem &&
-  openssl req -new -key key.pem -out csr.pem &&
-  openssl x509 -req -days 9999 -in csr.pem -signkey key.pem -out cert.pem &&
-  rm csr.pem
-}
+if [[ $(which pygmentize) ]]; then
+  cat() {
+    pygmentize $@ 2>/dev/null
+    [[ $? != 0 ]] && /bin/cat $@
+  }
+fi
 
 
 #full recursive directory listing
