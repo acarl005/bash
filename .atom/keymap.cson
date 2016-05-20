@@ -5,6 +5,7 @@
   'alt-right': 'editor:move-to-end-of-line'
   'alt-left': 'editor:move-to-first-character-of-line'
   'alt-backspace': 'editor:delete-to-beginning-of-line'
+  'alt-x': 'custom:remove-block'
 
 'atom-text-editor':
   'ctrl-shift-M': 'bracket-matcher:select-inside-brackets'

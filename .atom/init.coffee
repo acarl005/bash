@@ -18,3 +18,17 @@ atom.commands.add 'atom-text-editor', 'custom:semicolon-inside', ->
   editor.insertText ';'
   editor.cursors.forEach (cursor) ->
     cursor.moveLeft 2
+
+atom.commands.add 'atom-text-editor', 'custom:remove-block', ->
+  editor = atom.workspace.getActiveTextEditor()
+  view = atom.views.getView(editor)
+  atom.commands.dispatch(view, 'bracket-matcher:select-inside-brackets')
+  selection = editor.getSelections()[0]
+  range = selection.getScreenRange()
+  startLine = range.start.row
+  endLine = range.end.row
+  selection.outdentSelectedRows()
+  selection.selectLine(endLine)
+  editor.delete()
+  selection.selectLine(startLine)
+  editor.delete()
