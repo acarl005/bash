@@ -8,7 +8,7 @@ var re = new RegExp(remote + "\\s*(https://github\\.com/(?:\\S+)).git");
 exec('git remote -v', function(err, out) {
   try {
     var url = out.match(re)[1];
-    exec('open ' + url);
+    exec('google-chrome ' + url);
   } catch (err) {
     console.error('\033[31mremote ' + remote + ' is not known')
   }
