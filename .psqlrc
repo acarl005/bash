@@ -1,5 +1,5 @@
 \set QUIET 1
-\pset null '¤'
+\pset null '_'
 
 -- Customize prompts
 \set PROMPT1 '%[%033[0;37m%]🐘 %[%033[1;36m%][%n@%/] %[%033[0m%]%R> '
@@ -9,7 +9,6 @@
 \timing
 
 -- Use best available output format
-\x auto
 \set VERBOSITY verbose
 \set HISTCONTROL ignoredups
 \set COMP_KEYWORD_CASE upper

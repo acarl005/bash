@@ -1,7 +1,7 @@
-c_reset='\e[0m'
-c_red='\e[0;31;40m'
-c_green='\e[0;32m'
-c_cyan='\e[0;36m'
+c_reset='\033[0m'
+c_red='\033[0;31;40m'
+c_green='\033[0;32m'
+c_cyan='\033[0;36m'
 
 
 if [ ! -d .git ] ; then git init; fi

@@ -1,4 +1,5 @@
-nohup.out
 npm-debug.log
 node_modules
-octave-workspace
+.DS_Store
+.sass-cache/
+*.swp
