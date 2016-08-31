@@ -17,7 +17,6 @@ cp ~/.psqlrc ./
 cp ~/.mongorc.js ./
 cp ~/.pythonrc.py ./
 cp ~/.vimrc ./
-cp ~/.atom/* ./.atom
 
 git add .
 git commit -m "$1"
