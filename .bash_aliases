@@ -17,6 +17,7 @@ alias serv="python -m SimpleHTTPServer"
 alias conk="conky -d -c ~/.conky/conkyrc_seamod"
 alias chrome="google-chrome"
 alias e=$EDITOR
+alias cls='printf "\033c"'
 
 alias desk="pushd $HOME/Desktop"
 export desk="$HOME/Desktop"
@@ -50,3 +51,5 @@ alias day="redshift -O 6500"
 alias night="redshift -O 3700"
 alias twilight="redshift -O 5000"
 
+alias pip=pip3
+alias python=python3

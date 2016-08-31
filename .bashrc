@@ -48,30 +48,12 @@ fi
 
 
 # function for generating escaped color codes
-color_esc() {
-  echo "\\[\\e[1;${1}m\\]"
+fg_bg_esc() {
+  echo "\\[\\e[0;38;5;${1};48;5;${2};1m\\]"
 }
-# foreground
-# 30 black
-# 31 red
-# 32 green
-# 33 yellow
-# 34 blue
-# 35 magenta (purple)
-# 36 cyan
-# 37 white
-# 39 default (white)
-
-# background
-# 40 black
-# 41 red
-# 42 green
-# 43 yellow
-# 44 blue
-# 45 magenta (purple)
-# 46 cyan
-# 47 white
-# 49 default (black)
+fg_esc() {
+  echo "\\[\\e[0;38;5;${1};49;22m\\]"
+}
 
 # set back to normal
 reset_esc='\[\e[0m\]'
@@ -137,48 +119,52 @@ else
 fi
 
 
-gems="$(color_esc 31)💎$(color_esc 32)💎$(color_esc 36)💎$(color_esc 35)💎${reset_esc}"
-
 # PROMPT_COMMAND is a variable whose value is some code that gets evaluated each time the prompt awaits input
 # PS1 is the variable for the prompt you see when terminal is awaiting input
-PROMPT_COMMAND='
-PS1="$(venv)$(format_pwd)$(git_prompt) ${gems} ${reset_esc} ";
+PROMPT_COMMAND='PS1="$(generate_prompt)${reset_esc} "
 echo -ne "\033]0;$(basename $(pwd))\007";'
 export PS2='... '
 
-format_pwd() {
-  short_wd='\w'
-  # if we are not in the home directory, add a little warning
-  if [[ $(pwd) != "$HOME"* ]]; then
-    short_wd="${reset_esc}\[\e[0;0;40m\]💀 $(color_esc 35)${short_wd}${reset_esc}"
-  fi
-  echo -e "$(color_esc 35)${short_wd}"
-}
-
-# show a little snake icon if we're in a python virtual environment
-venv() {
+generate_prompt() {
+  PYTHON_BG=27
+  PYTHON_STR=
   if [[ $VIRTUAL_ENV ]]; then
-    echo -e "${color_esc 32}🐍 "
+    PYTHON_STR="🐍 "
   fi
-}
 
-
-# determines if the git branch you are on is clean or dirty and labels accordingly
-git_prompt() {
-  if ! git rev-parse --git-dir > /dev/null 2>&1; then
-    return 0
+  DIR_BG=54
+  DIR_STR='\w'
+  DIR_FG=255
+  if [[ $(pwd) != "$HOME"* ]]; then
+    DIR_BG=0
+    DIR_FG=210
+    DIR_STR="💀 \w"
   fi
-  # Grab working branch name
-  branch=$(__git_ps1)
-  # Clean or dirty branch
-  if [[ $(git diff) ]]; then
-    git_icon="$(color_esc 31)✗"
-  elif [[ $(git status --short) ]]; then
-    git_icon="$(color_esc 33)△"
+
+  GIT_BG=
+  GIT_STR=
+  if git rev-parse --git-dir > /dev/null 2>&1; then
+    GIT_STR=$(__git_ps1 | sed 's/^\s(\(.*\))$/\1/')
+    if [[ $(git diff) ]]; then
+      GIT_BG=88
+    elif [[ $(git status --short) ]]; then
+      GIT_BG=130
+    else
+      GIT_BG=22
+    fi
+  fi
+
+  PROMPT_STR=
+  if [[ ! -z $PYTHON_STR ]]; then
+    PROMPT_STR="$(fg_bg_esc 255 $PYTHON_BG)$PYTHON_STR  $(fg_bg_esc $PYTHON_BG $DIR_BG)"
+  fi
+  PROMPT_STR="$PROMPT_STR$(fg_bg_esc $DIR_FG $DIR_BG) $DIR_STR "
+  if [[ -z $GIT_STR ]]; then
+    PROMPT_STR="$PROMPT_STR$(fg_esc $DIR_BG)"
   else
-    git_icon="$(color_esc 32)✓"
+    PROMPT_STR="$PROMPT_STR$(fg_bg_esc $DIR_BG $GIT_BG)$(fg_bg_esc 255 $GIT_BG) $GIT_STR $(fg_esc $GIT_BG)"
   fi
-  echo "$(color_esc 36)${branch:0:${#branch} - 1}${git_icon}$(color_esc 36))${reset_esc}"
+  echo $PROMPT_STR
 }
 
 export EDITOR=vim
