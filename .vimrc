@@ -35,20 +35,22 @@ Plugin 'tpope/vim-surround' " manipulates surrounding brackets and quotes
 Plugin 'kchmck/vim-coffee-script' " coffeescript syntax highlighting
 Plugin 'scrooloose/syntastic' " inline syntax checker
 Plugin 'kien/ctrlp.vim' " fuzzy searching for files
+Plugin 'airblade/vim-gitgutter'
+Plugin 'scrooloose/nerdcommenter' " adds keybindings for easily commenting out lines \c<space> to toggle
+Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'Yggdroot/indentLine'
 
 " a pretty status line 
 " requires installation of this font package on OSX:
 " https://github.com/powerline/fonts
 " this font must be chosen for the terminal as well
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 Plugin 'kana/vim-textobj-user' " plugin for defining custom text objects
 Plugin 'glts/vim-textobj-comment' " binds a text object to c for comments
 Plugin 'nelstrom/vim-textobj-rubyblock' " binds a text object to r for ruby blocks
 Plugin 'michaeljsmith/vim-indent-object' " binds a text object to i for an indentation level (good for python)
 
-Plugin 'reedes/vim-colors-pencil'
 Plugin 'NLKNguyen/papercolor-theme'
 
 " All of your Plugins must be added before the following line
@@ -135,6 +137,21 @@ let g:ctrlp_working_path_mode = 'ra'
 " custom key mappings
 " when in insert mode, insert line above
 imap <nowait> <C-l> <C-c>O
+" insert console.log (alt+c)
+imap <nowait> ç console.log()<C-c>i
+" edit the .vimrc (alt+v)
+nmap <nowait> √ :tabe ~/.vimrc<CR>
 " pretty format for a JSON file. just press =j
 nmap =j :%!python -m json.tool<CR>
+" open new tab
+map <nowait> <C-t> :tabe<CR>
+" remove all trailing whitespace
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
+:command Dedent call Dedent()
+function! Dedent()
+  set ts=4 sts=4 noet
+  retab!
+  set ts=2 sts=2 et
+  retab
+endfunction

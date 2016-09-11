@@ -126,25 +126,57 @@ echo -ne "\033]0;$(basename $(pwd))\007";'
 export PS2='... '
 
 generate_prompt() {
-  PYTHON_BG=27
-  PYTHON_STR=
+  ENV_BG=27
+  ENV_STR=
   if [[ $VIRTUAL_ENV ]]; then
-    PYTHON_STR="🐍 "
+    ENV_STR="${ENV_STR}🐍 "
+  fi
+  if [[ $DOCKER_MACHINE_NAME ]]; then
+    ENV_STR="${ENV_STR}🐳 "
+  fi
+  if [ ! -z $rvm_bin_path ]; then
+    ENV_STR="${ENV_STR}💎 "
   fi
 
   DIR_BG=54
-  DIR_STR='\w'
   DIR_FG=255
+  DIR_STR=
+  # get working directory path and replace $HOME with ~
+  WORK_DIR=`pwd | sed "s~^$HOME~\~~"`
+  # use "read" to parse the slashes to an array
+  IFS=' ' read -r -a DIR_ARR <<< `echo $WORK_DIR | sed 's~\([^$]\)/~\1 ~g'`
+  ARR_LEN="${#DIR_ARR[@]}"
+  # decide how many levels to show based on terminal width
+  NUM_LEVELS_TO_SHOW=$(expr $(tput cols) / 25)
+  START_VAL=`expr $ARR_LEN - $NUM_LEVELS_TO_SHOW`
+  # make sure we don't try to show more levels than there actually are
+  if [ $START_VAL -le 0 ]; then
+    START_VAL=0
+  else
+    # show an ellipsis if we chopped some levels off
+    DIR_STR=…
+  fi
+  # build up the string
+  for ind in `seq $START_VAL $ARR_LEN`; do
+    DIR_STR="$DIR_STR${DIR_ARR[$ind]}/"
+  done
+  # remove extra slashes at the end
+  DIR_STR=`echo $DIR_STR | sed 's~/*$~~g'`
+  # maybe there are no levels at all.. then we're in the root
+  if [ -z $DIR_STR ]; then
+    DIR_STR=/
+  fi
+  # change the colors when we aren't in the home directory, so we know the potential danger of deleting and editting things out here
   if [[ $(pwd) != "$HOME"* ]]; then
     DIR_BG=0
     DIR_FG=210
-    DIR_STR="💀 \w"
+    DIR_STR="💀 $DIR_STR"
   fi
 
   GIT_BG=
   GIT_STR=
   if git rev-parse --git-dir > /dev/null 2>&1; then
-    GIT_STR=$(__git_ps1 | sed 's/^\s(\(.*\))$/\1/')
+    GIT_STR=$(__git_ps1 | sed 's/ (\(.*\))$/\1/')
     if [[ $(git diff) ]]; then
       GIT_BG=88
     elif [[ $(git status --short) ]]; then
@@ -155,14 +187,14 @@ generate_prompt() {
   fi
 
   PROMPT_STR=
-  if [[ ! -z $PYTHON_STR ]]; then
-    PROMPT_STR="$(fg_bg_esc 255 $PYTHON_BG)$PYTHON_STR  $(fg_bg_esc $PYTHON_BG $DIR_BG)"
+  if [[ ! -z $ENV_STR ]]; then
+    PROMPT_STR="$(fg_bg_esc 255 $ENV_BG)$ENV_STR  $(fg_bg_esc $ENV_BG $DIR_BG)"
   fi
   PROMPT_STR="$PROMPT_STR$(fg_bg_esc $DIR_FG $DIR_BG) $DIR_STR "
   if [[ -z $GIT_STR ]]; then
     PROMPT_STR="$PROMPT_STR$(fg_esc $DIR_BG)"
   else
-    PROMPT_STR="$PROMPT_STR$(fg_bg_esc $DIR_BG $GIT_BG)$(fg_bg_esc 255 $GIT_BG) $GIT_STR $(fg_esc $GIT_BG)"
+    PROMPT_STR="$PROMPT_STR$(fg_bg_esc $DIR_BG $GIT_BG)$(fg_bg_esc 255 $GIT_BG) $GIT_STR $(fg_esc $GIT_BG)"
   fi
   echo $PROMPT_STR
 }
