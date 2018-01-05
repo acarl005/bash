@@ -30,8 +30,8 @@ suggest() {
   echo -e "$(backg 52)You can \033[4menhance\033[24m the experience by installing $(forg 51)$1$reset$(backg 52). Install here $(forg 199)$2$reset."
 }
 
-if [[ `which neofetch` ]]; then
-  neofetch
+if [[ `which screenfetch` ]]; then
+  screenfetch
 else
   # Greet me with a mario and other stuff
   echo
