@@ -22,6 +22,7 @@ Plugin 'Townk/vim-autoclose.git' " auto add matching bracket or quote when you t
 Plugin 'terryma/vim-multiple-cursors' " sublime-text-like multi cursors
 Plugin 'tpope/vim-surround' " manipulates surrounding brackets and quotes
 Plugin 'tpope/vim-repeat' " adds . support for the vim-surround maps
+Plugin 'tpope/vim-fugitive' " a git wrapper
 Plugin 'ctrlpvim/ctrlp.vim' " fuzzy searching for files
 Plugin 'Yggdroot/indentLine' " adds a little grey line at each indentation level
 Plugin 'airblade/vim-gitgutter' " adds git diff symbols on the left hand side
@@ -30,6 +31,8 @@ Plugin 'scrooloose/nerdtree' " a file explorer
 Plugin 'AndrewRadev/splitjoin.vim' " switch formatting of objects between one-line and multi-line with gj and gS
 Plugin 'skammer/vim-swaplines' " move lines up or down
 Plugin 'eapache/rainbow_parentheses.vim' " color parentheses based on depth
+Plugin 'sagarrakshe/toggle-bool' " shortcut for toggling booleans in whatever language
+Plugin 'mileszs/ack.vim' " call ack command from vim
 
 Plugin 'scrooloose/syntastic' " inline syntax checker
 Plugin 'jelera/vim-javascript-syntax' " better js highlighting
@@ -37,6 +40,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'elzr/vim-json' " better json highlighting 
 Plugin 'derekwyatt/vim-scala'
+Plugin 'exu/pgsql.vim' " postgres-specific SQL syntax
 
 " a pretty status line 
 " requires installation of this font package on OSX:
@@ -52,6 +56,7 @@ Plugin 'zandrmartin/vim-textobj-blanklines' " text obj for blank lines to <space
 Plugin 'sgur/vim-textobj-parameter' " text obj for a function param to ,
 
 Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'acarl005/vim-gotham'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -71,15 +76,16 @@ filetype plugin indent on    " required
 syntax on " enable syntax highlighting
 
 " Use dark color theme after 5pm and light color theme in the morning
-colorscheme pablo
-colorscheme PaperColor
-if strftime('%H') > 16
-  set background=dark
-elseif strftime('%H') < 7
-  set background=dark
-else
-  set background=light
-endif
+"colorscheme pablo
+"colorscheme PaperColor
+colorscheme gotham256
+"if strftime('%H') > 16
+  "set background=dark
+"elseif strftime('%H') < 7
+  "set background=dark
+"else
+  "set background=light
+"endif
 
 " a matching extension for things like ruby blocks
 runtime macros/matchit.vim
@@ -116,6 +122,9 @@ set backspace=indent,eol,start " enable backspace button
 set scrolloff=15 " vim will automatically adjust viewport to leave at least 15 lines above and below cursor when possible
 set wildignore=*/node_modules/*,*.swp,*.zip,*/dist/*
 set nofoldenable " disables code folding, because its confusing and I can't find decent docs on it
+" virtualedit allows you to move the cursor where there aren't any actual characters, for example after the end of the line
+" block means this is only enabled in block edit mode
+set virtualedit=block
 
 " configure the status line
 set laststatus=2 " always show the status bar
@@ -129,9 +138,12 @@ set laststatus=2 " always show the status bar
 "set statusline+=%c,%l/%L@%P\  " show column, line, line-count, and percent from top of file
 "set statusline+=%b,0x%-8B\                   " current char
 
+" indentline options
+let g:indentLine_color_term = 236
+let g:indentLine_char = '𝄄'
 " syntastic options
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = 'eslint_d'
+"let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_javascript_eslint_exec = 'eslint_d'
 let g:syntastic_python_checkers = ['pyflakes']
 "let g:syntastic_mode_map = { "mode": "passive" }
 let g:jsx_ext_required = 0
@@ -139,6 +151,9 @@ let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" set default SQL dialect to postgres. used with 'exu/pgsql.vim'
+let g:sql_type_default = 'pgsql'
 
 " CtrlP options
 let g:ctrlp_map = '<c-p>'

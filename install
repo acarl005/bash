@@ -1,32 +1,18 @@
 set -e #exit on any failure
 
-./packages.sh && {
+./packages.sh
 
-  export sublime="$HOME/.config/sublime-text-2/Packages/User"
-
-  test -d $sublime && {
-    cp Preferences.sublime-settings $sublime/
-    cp "Default (Linux).sublime-keymap" $sublime/
-    cd subl_macros
-    for f in *.sublime-macro; do
-      cp $f $sublime/
-    done
-    cd ..
-  }
-
-
-  mkdir ~/opt
-  cp -R bin/ ~/opt/
-  cp .bashrc ~/
-  cp .bash_aliases ~/
-  cp .gitconfig ~/
-  cp .gitignore_global ~/
-  cp .inputrc ~/
-  cp .pryrc ~/
-  cp .psqlrc ~/
-  cp .mongorc.js ~/
-  cp .pythonrc.py ~/
-  cp .profile ~/
-  cp .jshintrc ~/
-  cp -R .conky/ ~/
-}
+mkdir ~/opt
+cp -R bin/ ~/opt/
+cp .bashrc ~/
+cp .bash_aliases ~/
+cp .gitconfig ~/
+cp .gitignore_global ~/
+cp .inputrc ~/
+cp .pryrc ~/
+cp .psqlrc ~/
+cp .mongorc.js ~/
+cp .pythonrc.py ~/
+cp .profile ~/
+cp -R .conky/ ~/
+cp .vimrc ~/
